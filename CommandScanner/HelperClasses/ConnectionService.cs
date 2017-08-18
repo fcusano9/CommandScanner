@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Renci.SshNet;
+using System.Windows;
 
 namespace CommandScanner.HelperClasses
 {
@@ -30,10 +31,12 @@ namespace CommandScanner.HelperClasses
 					Address = hostName;
 					Port = 22;
 
+					// set the username and password for authentication
 					const string userName = "crestron";
 					const string password = "";
 					var passwordAuthentication = new PasswordAuthenticationMethod(userName, password);
 
+					// save the connection info
 					DeviceConnectionInfo = new ConnectionInfo(Address, Port, userName, passwordAuthentication);
 					break;
 
@@ -49,9 +52,7 @@ namespace CommandScanner.HelperClasses
 		#region Fields
 
 		private SshClient _sshClient;
-
 		private TcpClient _ctpClient;
-
 		private ConnectionInfo DeviceConnectionInfo { get; }
 		private ConnectionType DeviceConnectionType { get; }
 		private string Address { get; }
@@ -81,19 +82,63 @@ namespace CommandScanner.HelperClasses
 
 		#region Methods
 
-		private void Connect()
+		/// <summary>
+		/// Create a new instance of a connection client and connects to the device
+		/// </summary>
+		public bool Connect()
 		{
-			switch (DeviceConnectionType)
+			try
 			{
-				case ConnectionType.Ssh:
-					_sshClient = new SshClient(DeviceConnectionInfo);
-					_sshClient.Connect();
-					break;
+				switch (DeviceConnectionType)
+				{
+					case ConnectionType.Ssh:
+						_sshClient = new SshClient(DeviceConnectionInfo);
+						_sshClient.Connect();
 
-				case ConnectionType.Ctp:
-					_ctpClient = new TcpClient(Address, Port);
-					_ctpClient.Connect(Address, Port);
-					break;
+						if (_sshClient.IsConnected)
+							return true;
+						break;
+
+					case ConnectionType.Ctp:
+						_ctpClient = new TcpClient(Address, Port);
+						_ctpClient.Connect(Address, Port);
+
+						if (_ctpClient.Connected)
+							return true;
+						break;
+				}
+			}
+			catch
+			{
+				MessageBox.Show($"Unable to connect to {Address}", "Connection Failed");
+				return false;
+			}
+			return false;
+		}
+
+		/// <summary>
+		/// Disconnects from the device and destroys the connection
+		/// </summary>
+		public void Disconnect()
+		{
+			try
+			{
+				switch (DeviceConnectionType)
+				{
+					case ConnectionType.Ssh:
+						_sshClient.Disconnect();
+						_sshClient.Dispose();
+						break;
+					case ConnectionType.Ctp:
+						_ctpClient.Close();
+						break;
+					default:
+						break;
+				}
+			}
+			catch(Exception)
+			{
+				throw;
 			}
 		}
 
@@ -111,21 +156,13 @@ namespace CommandScanner.HelperClasses
 				switch (DeviceConnectionType)
 				{
 					case ConnectionType.Ssh:
-						using (var sshClient = new SshClient(DeviceConnectionInfo))
-						{
-							sshClient.Connect();
-							commandResult = SendCommand(sshClient, inputCommand);
-							sshClient.Disconnect();
-						}
+						commandResult = SendCommand(_sshClient, inputCommand);
 						return commandResult;
 
 					case ConnectionType.Ctp:
-						using(var ctpClient = new TcpClient(Address, Port))
-						{
-							NetworkStream stream = ctpClient.GetStream();
-							commandResult = SendCommand(stream, inputCommand);
-							stream.Close();
-						}
+						NetworkStream stream = _ctpClient.GetStream();
+						commandResult = SendCommand(stream, inputCommand);
+						stream.Close();
 						return commandResult;
 
 					case ConnectionType.Auto:
@@ -188,8 +225,6 @@ namespace CommandScanner.HelperClasses
 			stopwatch.Stop();
 			return resultString.ToString();
 		}
-
-
 
 		#endregion
 	}

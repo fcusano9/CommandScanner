@@ -23,5 +23,10 @@ namespace CommandScanner
 		{
 			InitializeComponent();
 		}
+
+		private void scanningProgress_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+		{
+
+		}
 	}
 }

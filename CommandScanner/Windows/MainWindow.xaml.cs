@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,7 +30,6 @@ namespace CommandScanner
 		{
 			InitializeComponent();
 		}
-
 
 		#region Event Handlers
 
@@ -77,22 +77,55 @@ namespace CommandScanner
 
 		#region Connect Button
 
+		/// <summary>
+		/// Establish a connection with the device
+		/// </summary>
 		private void connect_Click(object sender, RoutedEventArgs e)
 		{
-			string address = hostName.Text;
+			// TODO add a 'connecting...' prompt
 
+			string address = hostName.Text;
 			_connection = new ConnectionService(address, _connectionType);
 
+			bool connected = true;//_connection.Connect();
 
+			if (connected == true)
+				scanDevice.IsEnabled = true;
+
+
+			// TODO change prompt to say 'connected' if successful
 		}
 
 		#endregion
 
 		#region Scan Button
+
+		/// <summary>
+		/// Scan the device for the commands
+		/// </summary>
 		private void button_Click(object sender, RoutedEventArgs e)
 		{
+			// TODO get commands from device
+
+			// send hidhelp all and parse the return string
+
+			// use that info to create command objects
+
+			// for help command call the command to get its help
+
+			// save the command help to the command object
+
+
+			// TODO create an html file and write all of the commands to it
+
+
+			var loadWindow = new LoadScreen();
+			loadWindow.ShowDialog();
+
+
 			string fileName = hostName.Text;
-			string path = $@"C:\Users\fcusano\Documents\Visual Studio 2015\Projects\CommandScanner\{fileName}.html";
+			//string path = $@"C:\Users\fcusano\Documents\Visual Studio 2015\Projects\CommandScanner\{fileName}.html";
+			string path = $@"C:\Users\Frank\Documents\MyProjects\CommandScanner\{fileName}.html";
 
 			FileStream fs;
 			try
@@ -132,6 +165,11 @@ namespace CommandScanner
 
 		#endregion
 
+
+		#region Helper Methods
+
+
+		#endregion
 
 	}
 }
