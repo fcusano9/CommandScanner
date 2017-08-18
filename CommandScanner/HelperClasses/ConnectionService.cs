@@ -121,24 +121,15 @@ namespace CommandScanner.HelperClasses
 		/// </summary>
 		public void Disconnect()
 		{
-			try
+			switch (DeviceConnectionType)
 			{
-				switch (DeviceConnectionType)
-				{
-					case ConnectionType.Ssh:
-						_sshClient.Disconnect();
-						_sshClient.Dispose();
-						break;
-					case ConnectionType.Ctp:
-						_ctpClient.Close();
-						break;
-					default:
-						break;
-				}
-			}
-			catch(Exception)
-			{
-				throw;
+				case ConnectionType.Ssh:
+					_sshClient.Disconnect();
+					_sshClient.Dispose();
+					break;
+				case ConnectionType.Ctp:
+					_ctpClient.Close();
+					break;
 			}
 		}
 
@@ -156,6 +147,8 @@ namespace CommandScanner.HelperClasses
 				switch (DeviceConnectionType)
 				{
 					case ConnectionType.Ssh:
+						//if (!_sshClient.IsConnected)
+						//	_sshClient.Connect();
 						commandResult = SendCommand(_sshClient, inputCommand);
 						return commandResult;
 

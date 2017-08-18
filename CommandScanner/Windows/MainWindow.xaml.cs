@@ -87,7 +87,7 @@ namespace CommandScanner
 			string address = hostName.Text;
 			_connection = new ConnectionService(address, _connectionType);
 
-			bool connected = true;//_connection.Connect();
+			bool connected = _connection.Connect();
 
 			if (connected == true)
 				scanDevice.IsEnabled = true;
@@ -118,47 +118,50 @@ namespace CommandScanner
 
 			// TODO create an html file and write all of the commands to it
 
+			string result = _connection.SendCommand("help");
 
-			var loadWindow = new LoadScreen();
-			loadWindow.ShowDialog();
+			MessageBox.Show(result);
 
-
-			string fileName = hostName.Text;
-			string path = $@"C:\Users\fcusano\Documents\CommandScanner\{fileName}.html";
-			//string path = $@"C:\Users\Frank\Documents\MyProjects\CommandScanner\{fileName}.html";
-
-			FileStream fs;
-			try
-			{
-				fs = File.OpenWrite(path);
-				fs.Close();
-			}
-			catch
-			{
-				fs = File.Create(path);
-				fs.Close();
-			}
-
-			StringBuilder htmlFile = new StringBuilder();
-
-			htmlFile.AppendLine("<!DOCTYPE HTML>");
-			htmlFile.AppendLine("<html>");
-			htmlFile.AppendLine("<head>  <title>TEST FILE</title>\n  <meta name=\"utility_author\" content=\"Frank Cusano\">");
-			htmlFile.AppendLine("  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
-			htmlFile.AppendLine("  <style type=\"text/css\">");
-			htmlFile.AppendLine("      table { page-break-inside:auto }");
-			htmlFile.AppendLine("      tr    { page-break-inside:avoid; page-break-after:auto }");
-			htmlFile.AppendLine("      thead { display:table-header-group }");
-			htmlFile.AppendLine("      tfoot { display:table-footer-group }");
-			htmlFile.AppendLine("  </style>");
-			htmlFile.AppendLine("</head>\n<body>\n<font face='arial'>");
-
-			htmlFile.AppendLine("<h1>This is a test</h1>");
-			htmlFile.AppendLine("<table border=\"1\" cellpadding=\"5\" cellspacing=\"5\" style=\"border-collapse:collapse;\" width=\"100%\">");
-			htmlFile.AppendLine("</table>\n</font>\n</body>\n</html>");
+			//var loadWindow = new LoadScreen();
+			//loadWindow.ShowDialog();
 
 
-			File.WriteAllText(path, htmlFile.ToString());
+			//string fileName = hostName.Text;
+			//string path = $@"C:\Users\fcusano\Documents\CommandScanner\{fileName}.html";
+			////string path = $@"C:\Users\Frank\Documents\MyProjects\CommandScanner\{fileName}.html";
+
+			//FileStream fs;
+			//try
+			//{
+			//	fs = File.OpenWrite(path);
+			//	fs.Close();
+			//}
+			//catch
+			//{
+			//	fs = File.Create(path);
+			//	fs.Close();
+			//}
+
+			//StringBuilder htmlFile = new StringBuilder();
+
+			//htmlFile.AppendLine("<!DOCTYPE HTML>");
+			//htmlFile.AppendLine("<html>");
+			//htmlFile.AppendLine("<head>  <title>TEST FILE</title>\n  <meta name=\"utility_author\" content=\"Frank Cusano\">");
+			//htmlFile.AppendLine("  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
+			//htmlFile.AppendLine("  <style type=\"text/css\">");
+			//htmlFile.AppendLine("      table { page-break-inside:auto }");
+			//htmlFile.AppendLine("      tr    { page-break-inside:avoid; page-break-after:auto }");
+			//htmlFile.AppendLine("      thead { display:table-header-group }");
+			//htmlFile.AppendLine("      tfoot { display:table-footer-group }");
+			//htmlFile.AppendLine("  </style>");
+			//htmlFile.AppendLine("</head>\n<body>\n<font face='arial'>");
+
+			//htmlFile.AppendLine("<h1>This is a test</h1>");
+			//htmlFile.AppendLine("<table border=\"1\" cellpadding=\"5\" cellspacing=\"5\" style=\"border-collapse:collapse;\" width=\"100%\">");
+			//htmlFile.AppendLine("</table>\n</font>\n</body>\n</html>");
+
+
+			//File.WriteAllText(path, htmlFile.ToString());
 		}
 
 		#endregion
