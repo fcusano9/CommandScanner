@@ -124,8 +124,8 @@ namespace CommandScanner
 
 
 			string fileName = hostName.Text;
-			//string path = $@"C:\Users\fcusano\Documents\Visual Studio 2015\Projects\CommandScanner\{fileName}.html";
-			string path = $@"C:\Users\Frank\Documents\MyProjects\CommandScanner\{fileName}.html";
+			string path = $@"C:\Users\fcusano\Documents\CommandScanner\{fileName}.html";
+			//string path = $@"C:\Users\Frank\Documents\MyProjects\CommandScanner\{fileName}.html";
 
 			FileStream fs;
 			try
