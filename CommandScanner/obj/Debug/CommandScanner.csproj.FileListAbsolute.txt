@@ -21,7 +21,6 @@ C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\bin\Debug\Comm
 C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\bin\Debug\CommandScanner.pdb
 C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\bin\Debug\Renci.SshNet.dll
 C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\bin\Debug\Renci.SshNet.xml
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.csprojResolveAssemblyReference.cache
 C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\Windows\LoadScreen.g.cs
 C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\Windows\MainWindow.g.cs
 C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\App.g.cs
