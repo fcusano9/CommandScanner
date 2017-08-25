@@ -14,6 +14,18 @@ namespace CommandScanner.HelperClasses
 {
 	internal class ConnectionService
 	{
+		#region Properties & Fields
+
+		private ConnectionType DeviceConnectionType { get; }
+		private string Address { get; }
+		private int Port { get; }
+		private string Username { get; }
+		private string Password { get; }
+		private SshClient _sshClient;
+		private TcpClient _ctpClient;
+
+		#endregion
+
 		#region Constructors
 
 		/// <summary>
@@ -32,12 +44,11 @@ namespace CommandScanner.HelperClasses
 					Port = 22;
 
 					// set the username and password for authentication
-					const string userName = "crestron";
-					const string password = "";
-					var passwordAuthentication = new PasswordAuthenticationMethod(userName, password);
+					Username = "crestron";
+					Password = "";
 
 					// save the connection info
-					DeviceConnectionInfo = new ConnectionInfo(Address, Port, userName, passwordAuthentication);
+					_sshClient = new SshClient(Address, Port, Username, Password);
 					break;
 
 				case ConnectionType.Ctp:
@@ -49,18 +60,7 @@ namespace CommandScanner.HelperClasses
 
 		#endregion
 
-		#region Fields
-
-		private SshClient _sshClient;
-		private TcpClient _ctpClient;
-		private ConnectionInfo DeviceConnectionInfo { get; }
-		private ConnectionType DeviceConnectionType { get; }
-		private string Address { get; }
-		private int Port { get; }
-
-		#endregion
-
-		#region Destructors
+		#region Destructor
 
 		/// <summary>
 		/// Dispose of the SSH/CTP client
@@ -75,6 +75,8 @@ namespace CommandScanner.HelperClasses
 		{
 			if (disposing)
 			{
+				_sshClient?.Dispose();
+				_sshClient = null;
 			}
 		}
 
@@ -92,7 +94,6 @@ namespace CommandScanner.HelperClasses
 				switch (DeviceConnectionType)
 				{
 					case ConnectionType.Ssh:
-						_sshClient = new SshClient(DeviceConnectionInfo);
 						_sshClient.Connect();
 
 						if (_sshClient.IsConnected)
@@ -147,8 +148,9 @@ namespace CommandScanner.HelperClasses
 				switch (DeviceConnectionType)
 				{
 					case ConnectionType.Ssh:
-						//if (!_sshClient.IsConnected)
-						//	_sshClient.Connect();
+						if (!_sshClient.IsConnected)
+							_sshClient.Connect();
+
 						commandResult = SendCommand(_sshClient, inputCommand);
 						return commandResult;
 

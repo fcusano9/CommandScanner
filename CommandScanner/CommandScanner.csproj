@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="HelperClasses\ConnectionService.cs" />
     <Compile Include="HelperClasses\Enums.cs" />
+    <Compile Include="SystemCommands\Command.cs" />
     <Compile Include="Windows\LoadScreen.xaml.cs">
       <DependentUpon>LoadScreen.xaml</DependentUpon>
     </Compile>

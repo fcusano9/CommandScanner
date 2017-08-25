@@ -1,6 +1,7 @@
 ﻿using CommandScanner.HelperClasses;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CommandScanner.SystemCommands;
 
 namespace CommandScanner
 {
@@ -23,13 +25,21 @@ namespace CommandScanner
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		#region Properties & Fields
+
+		private ConnectionService Connection { get; set; }
 		private ConnectionType _connectionType;
-		private ConnectionService _connection;
+
+		#endregion
+
+		#region Constructor
 
 		public MainWindow()
 		{
 			InitializeComponent();
 		}
+
+		#endregion
 
 		#region Event Handlers
 
@@ -85,11 +95,11 @@ namespace CommandScanner
 			// TODO add a 'connecting...' prompt
 
 			string address = hostName.Text;
-			_connection = new ConnectionService(address, _connectionType);
+			Connection = new ConnectionService(address, _connectionType);
 
-			bool connected = _connection.Connect();
+			bool connected = Connection.Connect();
 
-			if (connected == true)
+			if (connected)
 				scanDevice.IsEnabled = true;
 
 
@@ -105,72 +115,137 @@ namespace CommandScanner
 		/// </summary>
 		private void button_Click(object sender, RoutedEventArgs e)
 		{
-			// TODO get commands from device
+			// get all commands
+			var allCommands = GetAllCommands();
 
-			// send hidhelp all and parse the return string
+			// get all hidden commands
+			//var hiddenCommands = GetHiddenCommands();
 
-			// use that info to create command objects
-
-			// for help command call the command to get its help
-
-			// save the command help to the command object
-
-
-			// TODO create an html file and write all of the commands to it
-
-			string result = _connection.SendCommand("help");
-
-			MessageBox.Show(result);
+			// write all of the commands to an html file
+			WriteCommandsToFile(allCommands);
 
 			//var loadWindow = new LoadScreen();
 			//loadWindow.ShowDialog();
-
-
-			//string fileName = hostName.Text;
-			//string path = $@"C:\Users\fcusano\Documents\CommandScanner\{fileName}.html";
-			////string path = $@"C:\Users\Frank\Documents\MyProjects\CommandScanner\{fileName}.html";
-
-			//FileStream fs;
-			//try
-			//{
-			//	fs = File.OpenWrite(path);
-			//	fs.Close();
-			//}
-			//catch
-			//{
-			//	fs = File.Create(path);
-			//	fs.Close();
-			//}
-
-			//StringBuilder htmlFile = new StringBuilder();
-
-			//htmlFile.AppendLine("<!DOCTYPE HTML>");
-			//htmlFile.AppendLine("<html>");
-			//htmlFile.AppendLine("<head>  <title>TEST FILE</title>\n  <meta name=\"utility_author\" content=\"Frank Cusano\">");
-			//htmlFile.AppendLine("  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
-			//htmlFile.AppendLine("  <style type=\"text/css\">");
-			//htmlFile.AppendLine("      table { page-break-inside:auto }");
-			//htmlFile.AppendLine("      tr    { page-break-inside:avoid; page-break-after:auto }");
-			//htmlFile.AppendLine("      thead { display:table-header-group }");
-			//htmlFile.AppendLine("      tfoot { display:table-footer-group }");
-			//htmlFile.AppendLine("  </style>");
-			//htmlFile.AppendLine("</head>\n<body>\n<font face='arial'>");
-
-			//htmlFile.AppendLine("<h1>This is a test</h1>");
-			//htmlFile.AppendLine("<table border=\"1\" cellpadding=\"5\" cellspacing=\"5\" style=\"border-collapse:collapse;\" width=\"100%\">");
-			//htmlFile.AppendLine("</table>\n</font>\n</body>\n</html>");
-
-
-			//File.WriteAllText(path, htmlFile.ToString());
 		}
 
 		#endregion
 
 		#endregion
 
-
 		#region Helper Methods
 
+		private List<Command> GetAllCommands()
+		{
+			var allCommands = new List<Command>();
+
+			string result = Connection.SendCommand("help all");
+			var commands = result.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+			foreach (string command in commands)
+			{
+				string[] data = command.Split(new[] { "  " }, StringSplitOptions.RemoveEmptyEntries);
+				if (data.Length != 3)
+					continue;
+
+				var com = new Command(data[0].Trim(), data[1].Trim(), data[2].Trim());
+				GetCommandHelp(ref com);
+
+				allCommands.Add(com);
+			}
+
+			return allCommands;
+		}
+
+		/// <summary>
+		/// Get the command help by calling the command followed by '?'
+		/// </summary>
+		/// <param name="command"></param>
+		private void GetCommandHelp(ref Command command)
+		{
+			string result = Connection.SendCommand($"{command.Name} ?");
+
+			//if (!CheckIfValidHelp(result)) TODO
+			//{
+			//	result = Connection.SendCommand($"{command.Name} help");
+
+			//	if (!CheckIfValidHelp(result))
+			//	{
+			//		result = Connection.SendCommand(command.Name);
+			//	}
+			//}
+
+			command.Help = result.Trim();
+		}
+
+		/// <summary>
+		/// Verify that the help value returned valid
+		/// </summary>
+		/// <param name="helpResult"></param>
+		/// <returns></returns>
+		private static bool CheckIfValidHelp(string helpResult)
+		{
+			return helpResult != "\r\n" && helpResult != "\r" && helpResult != "\n" && helpResult != "" && helpResult != " ";
+		}
+
+		/// <summary>
+		/// Write all of the commands to an easy to read html file
+		/// </summary>
+		/// <param name="commands"></param>
+		private void WriteCommandsToFile(List<Command> commands)
+		{
+			string fileName = hostName.Text;
+			string path = $@"..\..\..\{fileName}.html";
+
+			FileStream fs;
+			try
+			{
+				fs = File.OpenWrite(path);
+				fs.Close();
+			}
+			catch
+			{
+				fs = File.Create(path);
+				fs.Close();
+			}
+
+			StringBuilder htmlFile = new StringBuilder();
+
+			htmlFile.AppendLine("<!DOCTYPE HTML>");
+			htmlFile.AppendLine("<html>");
+			htmlFile.AppendLine("<head>  <title>TEST FILE</title>");
+			htmlFile.AppendLine("    <meta name=\"utility_author\" content=\"Frank Cusano\">");
+			htmlFile.AppendLine("    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
+			htmlFile.AppendLine("    <style type=\"text/css\">");
+			htmlFile.AppendLine("        table { page-break-inside:auto }");
+			htmlFile.AppendLine("        tr    { page-break-inside:avoid; page-break-after:auto }");
+			htmlFile.AppendLine("        thead { display:table-header-group }");
+			htmlFile.AppendLine("        tfoot { display:table-footer-group }");
+			htmlFile.AppendLine("    </style>");
+			htmlFile.AppendLine("</head>\n<body>\n<font face='arial'>");
+
+			htmlFile.AppendLine("<h1>This is a test</h1>");
+			htmlFile.AppendLine($"<p>&nbsp;&nbsp; {commands.Count} normal commands found.</p>");
+
+			htmlFile.AppendLine(
+				"<table border=\"1\" cellpadding=\"5\" cellspacing=\"5\" style=\"border-collapse:collapse;\" width=\"100%\">\n");
+
+			foreach (var command in commands)
+			{
+				htmlFile.AppendLine("<tr bgcolor=\"#C0C0C0\">");
+				htmlFile.AppendLine($"    <th width=\"20%\"><font color=\"#000000\">{command.Name}</font></th>");
+				htmlFile.AppendLine($"    <th align=\"left\"><font color=\"#000000\">{command.Description} </font></th>");
+				htmlFile.AppendLine("</tr>");
+
+				htmlFile.AppendLine("<tr>");
+				htmlFile.AppendLine("<td colspan=\"2\">");
+				htmlFile.AppendLine($"<pre>\n{command.Help}\n</pre>");
+				htmlFile.AppendLine("</td>");
+				htmlFile.AppendLine("</tr>\n");
+			}
+			htmlFile.AppendLine("</table>\n</font>\n</body>\n</html>");
+
+			File.WriteAllText(path, htmlFile.ToString());
+		}
 
 		#endregion
 
