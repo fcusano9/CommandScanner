@@ -1,21 +1,10 @@
-﻿using CommandScanner.HelperClasses;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using CommandScanner.HelperClasses;
 using CommandScanner.SystemCommands;
 
 namespace CommandScanner
@@ -23,7 +12,7 @@ namespace CommandScanner
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class MainWindow
 	{
 		#region Properties & Fields
 
@@ -32,7 +21,7 @@ namespace CommandScanner
 
 		#endregion
 
-		#region Constructor
+		#region Constructors
 
 		public MainWindow()
 		{
@@ -51,7 +40,7 @@ namespace CommandScanner
 		private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			var comboBox = (ComboBox)sender;
-			string selection = (string)comboBox.SelectedItem;
+			var selection = (string)comboBox.SelectedItem;
 
 			switch (selection)
 			{
@@ -72,11 +61,7 @@ namespace CommandScanner
 		/// </summary>
 		private void comboBox_Loaded(object sender, RoutedEventArgs e)
 		{
-			List<string> data = new List<string>();
-			data.Add("Auto Detect");
-			data.Add("SSH");
-			data.Add("CTP");
-
+			var data = new List<string> {"Auto Detect", "SSH", "CTP"};
 			var comboBox = (ComboBox)sender;
 
 			comboBox.ItemsSource = data;
@@ -94,14 +79,13 @@ namespace CommandScanner
 		{
 			// TODO add a 'connecting...' prompt
 
-			string address = hostName.Text;
+			var address = HostName.Text;
 			Connection = new ConnectionService(address, _connectionType);
 
-			bool connected = Connection.Connect();
+			var connected = Connection.Connect();
 
 			if (connected)
-				scanDevice.IsEnabled = true;
-
+				ScanDevice.IsEnabled = true;
 
 			// TODO change prompt to say 'connected' if successful
 		}
@@ -121,7 +105,7 @@ namespace CommandScanner
 			// get all hidden commands
 			//var hiddenCommands = GetHiddenCommands();
 
-			// write all of the commands to an html file
+			// write all of the commands to an HTML file
 			WriteCommandsToFile(allCommands);
 
 			//var loadWindow = new LoadScreen();
@@ -138,12 +122,12 @@ namespace CommandScanner
 		{
 			var allCommands = new List<Command>();
 
-			string result = Connection.SendCommand("help all");
+			var result = Connection.SendCommand("help all");
 			var commands = result.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 
-			foreach (string command in commands)
+			foreach (var command in commands)
 			{
-				string[] data = command.Split(new[] { "  " }, StringSplitOptions.RemoveEmptyEntries);
+				var data = command.Split(new[] { "  " }, StringSplitOptions.RemoveEmptyEntries);
 				if (data.Length != 3)
 					continue;
 
@@ -162,19 +146,19 @@ namespace CommandScanner
 		/// <param name="command"></param>
 		private void GetCommandHelp(ref Command command)
 		{
-			string result = Connection.SendCommand($"{command.Name} ?");
+			var result = Connection.SendCommand($"{command.Name} ?").Trim();
 
-			//if (!CheckIfValidHelp(result)) TODO
-			//{
-			//	result = Connection.SendCommand($"{command.Name} help");
+			if (!CheckIfValidHelp(result))
+			{
+				result = Connection.SendCommand($"{command.Name} help").Trim();
 
-			//	if (!CheckIfValidHelp(result))
-			//	{
-			//		result = Connection.SendCommand(command.Name);
-			//	}
-			//}
+				if (!CheckIfValidHelp(result))
+				{
+					result = "There is no help for this command.";
+				}
+			}
 
-			command.Help = result.Trim();
+			command.Help = result;
 		}
 
 		/// <summary>
@@ -184,17 +168,18 @@ namespace CommandScanner
 		/// <returns></returns>
 		private static bool CheckIfValidHelp(string helpResult)
 		{
-			return helpResult != "\r\n" && helpResult != "\r" && helpResult != "\n" && helpResult != "" && helpResult != " ";
+			return helpResult != "\r\n" && helpResult != "\r" && helpResult != "\n" && helpResult != "" && helpResult != " "
+				&& helpResult != "Authentication is not on. Command not allowed.";
 		}
 
 		/// <summary>
-		/// Write all of the commands to an easy to read html file
+		/// Write all of the commands to an easy to read HTML file
 		/// </summary>
 		/// <param name="commands"></param>
 		private void WriteCommandsToFile(List<Command> commands)
 		{
-			string fileName = hostName.Text;
-			string path = $@"..\..\..\{fileName}.html";
+			var fileName = HostName.Text;
+			var path = $@"..\..\..\{fileName}.html";
 
 			FileStream fs;
 			try
@@ -208,7 +193,7 @@ namespace CommandScanner
 				fs.Close();
 			}
 
-			StringBuilder htmlFile = new StringBuilder();
+			var htmlFile = new StringBuilder();
 
 			htmlFile.AppendLine("<!DOCTYPE HTML>");
 			htmlFile.AppendLine("<html>");
@@ -222,12 +207,9 @@ namespace CommandScanner
 			htmlFile.AppendLine("        tfoot { display:table-footer-group }");
 			htmlFile.AppendLine("    </style>");
 			htmlFile.AppendLine("</head>\n<body>\n<font face='arial'>");
-
 			htmlFile.AppendLine("<h1>This is a test</h1>");
 			htmlFile.AppendLine($"<p>&nbsp;&nbsp; {commands.Count} normal commands found.</p>");
-
-			htmlFile.AppendLine(
-				"<table border=\"1\" cellpadding=\"5\" cellspacing=\"5\" style=\"border-collapse:collapse;\" width=\"100%\">\n");
+			htmlFile.AppendLine("<table border=\"1\" cellpadding=\"5\" cellspacing=\"5\" style=\"border-collapse:collapse;\" width=\"100%\">\n");
 
 			foreach (var command in commands)
 			{
@@ -245,9 +227,10 @@ namespace CommandScanner
 			htmlFile.AppendLine("</table>\n</font>\n</body>\n</html>");
 
 			File.WriteAllText(path, htmlFile.ToString());
+
+			MessageBox.Show("Done");
 		}
 
 		#endregion
-
 	}
 }

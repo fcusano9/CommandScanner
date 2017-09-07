@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using Renci.SshNet;
 using System.Windows;
 
@@ -31,7 +28,7 @@ namespace CommandScanner.HelperClasses
 		/// <summary>
 		/// Establish a new SSH or CTP client
 		/// </summary>
-		/// <param name="hostName">The host name or IP sddress of the device you wish to connect to</param>
+		/// <param name="hostName">The host name or IP address of the device you wish to connect to</param>
 		/// <param name="connectionType"></param>
 		public ConnectionService(string hostName, ConnectionType connectionType)
 		{
@@ -137,7 +134,7 @@ namespace CommandScanner.HelperClasses
 		/// <summary>
 		/// Connect to the client and send a command
 		/// </summary>
-		/// <param name="inputCommand">The command with aguments</param>
+		/// <param name="inputCommand">The command with arguments</param>
 		/// <returns>The command response</returns>
 		public string SendCommand(string inputCommand)
 		{
@@ -160,8 +157,7 @@ namespace CommandScanner.HelperClasses
 						stream.Close();
 						return commandResult;
 
-					case ConnectionType.Auto:
-						// TODO
+					// TODO add case for ConnectionType.Auto
 
 					default:
 					{
@@ -212,7 +208,7 @@ namespace CommandScanner.HelperClasses
 					}
 					catch (Exception exception)
 					{
-						throw exception;
+						MessageBox.Show($"Send Command Failed: {exception.Message}");
 					}
 				}
 			}

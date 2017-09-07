@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace CommandScanner.SystemCommands
 {
 	internal class Command
@@ -17,7 +12,7 @@ namespace CommandScanner.SystemCommands
 
 		#endregion
 
-		#region Constructor
+		#region Constructors
 
 		public Command(string name, string accessLevel, string description)
 		{
@@ -28,9 +23,13 @@ namespace CommandScanner.SystemCommands
 
 		#endregion
 
+		#region Public Methods
+
 		public override string ToString()
 		{
 			return $"{Name}";
 		}
+
+		#endregion
 	}
 }

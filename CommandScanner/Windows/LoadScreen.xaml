@@ -3,12 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CommandScanner"
         mc:Ignorable="d"
         Title="Command Scanner" Height="200" Width="300" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True">
     <Grid>
-		<ProgressBar x:Name="scanningProgress" HorizontalAlignment="Center" Height="10" Margin="0,100,0,0" VerticalAlignment="Top" Width="200" ValueChanged="scanningProgress_ValueChanged"/>
-		<TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="47,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"><Run Text="Scanning Device for Commands"/><LineBreak/><Run/></TextBlock>
+		<ProgressBar x:Name="ScanningProgress" HorizontalAlignment="Center" Height="10" Margin="0,100,0,0" VerticalAlignment="Top" Width="200" ValueChanged="scanningProgress_ValueChanged"/>
+		<TextBlock x:Name="TextBlock" HorizontalAlignment="Left" Margin="47,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"><Run Text="Scanning Device for Commands"/><LineBreak/><Run/></TextBlock>
 
 	</Grid>
 </Window>
