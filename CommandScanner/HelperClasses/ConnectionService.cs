@@ -98,11 +98,11 @@ namespace CommandScanner.HelperClasses
 						break;
 
 					case ConnectionType.Ctp:
-						_ctpClient = new TcpClient(Address, Port);
-						_ctpClient.Connect(Address, Port);
-
-						if (_ctpClient.Connected)
-							return true;
+						using (var ctpClient = new TcpClient(Address, Port))
+						{
+							if (ctpClient.Connected)
+								return true;
+						}
 						break;
 				}
 			}
@@ -152,9 +152,12 @@ namespace CommandScanner.HelperClasses
 						return commandResult;
 
 					case ConnectionType.Ctp:
-						NetworkStream stream = _ctpClient.GetStream();
-						commandResult = SendCommand(stream, inputCommand);
-						stream.Close();
+						using (var ctpClient = new TcpClient(Address, Port))
+						{
+							NetworkStream stream = ctpClient.GetStream();
+							commandResult = SendCommand(stream, inputCommand);
+							stream.Close();
+						}
 						return commandResult;
 
 					// TODO add case for ConnectionType.Auto
