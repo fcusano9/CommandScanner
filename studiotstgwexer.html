@@ -1,0 +1,1283 @@
+<!DOCTYPE HTML>
+<html>
+<head>  <title>TEST FILE</title>
+    <meta name="utility_author" content="Frank Cusano">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        table { page-break-inside:auto }
+        tr    { page-break-inside:avoid; page-break-after:auto }
+        thead { display:table-header-group }
+        tfoot { display:table-footer-group }
+    </style>
+</head>
+<body>
+<font face='arial'>
+<h1>This is a test</h1>
+<p>&nbsp;&nbsp; 69 normal commands found.</p>
+<table border="1" cellpadding="5" cellspacing="5" style="border-collapse:collapse;" width="100%">
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">?</font></th>
+    <th align="left"><font color="#000000">Main Help screen </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>?                      This help menu.                         ASSIGNFw               Assigns FW file pair to an RFID         REBOOT                 Perform system reboot                   REPORTFw               Reports FW assignment for RFID          REPORTFWALL            Reports all assigned FW files           VERsion                Print version to console                XGETfile               Use XMODEM to retrieve a file           XPUTfile               Use XMODEM to send a file               
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ACTIVESCAN</font></th>
+    <th align="left"><font color="#000000">Preform network scan </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Perform network scan
+ACTIVESCAN [TSID|ALL] [VERBOSE] [SCAN CHANNELS MASK] [SCAN DURATION] [SCAN COUNT] 
+	TSID               - TSID of the gateway/remote device.
+	ALL                - every device in the network will perform energy scans with provided parameters
+	VERBOSE            - display the results ON/OFF at the end of scan or RESULTSONLY
+	SCAN CHANNELS      - 0 - all channels, 11-26 individual channels (defaults to all channels)
+	SCAN DURATION      - how long to scan on each channel - 0=31ms,1=46ms,2=77ms,3=138ms,4=261ms,5=507ms (default)
+	SCAN COUNT         - number of scans to be performed on each channel - 1-default 
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ACQuire</font></th>
+    <th align="left"><font color="#000000">Start/stop acquire process </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>ZBRFGW acquires device(s)
+ACQUIRE [START|STOP] [timeout]
+	timeout - optional, timeout is in minutes max timeout is 180 minutes (in decimal) 
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADDDns</font></th>
+    <th align="left"><font color="#000000">Add entry to DNS List </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>ADDDNS ip_address
+	ip_address - IP address in dot decimal notation
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADDMaster</font></th>
+    <th align="left"><font color="#000000">Add an entry to IP table </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>ADDMASTER cip_id ip_address/name device_id CIP_Port
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ASSIGNFw</font></th>
+    <th align="left"><font color="#000000">Assigns FW file pair to an RFID </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Assigns a particular FW file pair to an RFID
+ASSIGNFW [RFID] [FW_NAME] [FW_INI_NAME]
+	RFID - device RFID to assign the firmware for
+	FW_NAME - the firmware file name to be assigned
+	FW_INI_NAME - the name of the associated firmware INI file
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUTOdiscovery</font></th>
+    <th align="left"><font color="#000000">Enable/disable auto discovery </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>AUTODISCOVERY {ON|OFF|HOSTS}
+	ON - Turn autodiscovery on
+	OFF - Turn autodiscovery off
+	HOSTS - Show list of discovered nodes
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">BACKUPTC</font></th>
+    <th align="left"><font color="#000000">Back up Trust Center </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>BACKUPTC Filename 
+	Filename - save rf configuration to this file
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CD</font></th>
+    <th align="left"><font color="#000000">Change directory </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>CD [directory] 
+	directory - string containing directory specification
+	No parameter - display current setting
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CIPPort</font></th>
+    <th align="left"><font color="#000000">Set port number for CIP </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>CIPPORT portnumber
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CLEarerr</font></th>
+    <th align="left"><font color="#000000">Clears the current error log </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">COMPACT</font></th>
+    <th align="left"><font color="#000000">Remove invalid files from fs </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>COMPACT
+	No parameters
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CTPPORT</font></th>
+    <th align="left"><font color="#000000">Set port number for CTP </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>CTPPORT portnumber
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DEBUG</font></th>
+    <th align="left"><font color="#000000">Enable/Disable Debug </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Display or set debug trace settings
+DEBUG [RFRX|RFTX|CRESNET|DEV|ALL|RFID] [ON|OFF|LEVEL]
+	RFRX  - rf receive trace 
+	RFTX  - rf transmit trace 
+	CRESENT  - Cresnet trace 
+	IMAGESERVER  - Image Server trace 
+	DEV  - development purpose trace 
+	ALL   - turn ON/OFF/LEVEL all traces
+	LEVEL - debug level 1..3 (bitmask for DEV option)
+	RFID - rfid to turn on/off traces 
+
+Current Debug settings 
+	RFRx Trace:     OFF
+	RFTx Trace:     OFF
+	Cresenet trace: OFF
+	ImageServer trace: OFF
+	Development trace: OFF
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DEFRouter</font></th>
+    <th align="left"><font color="#000000">Set default router-dot notation </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>DEFROUTER [device_num ip_address]
+	device_num - specified Ethernet device  [0,0]
+	ip_address - IP address in dot decimal notation
+	No parameter - displays current value
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DELete</font></th>
+    <th align="left"><font color="#000000">Delete a file or subdirectory </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>DELETE filesearchstring
+	filesearchstring - search string which may not contain wildcards
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DHCP</font></th>
+    <th align="left"><font color="#000000">Enable/disable dynamic IP addr </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>DHCP [ON | OFF | REL_RENEW]
+	ON - enables DHCP for LAN A
+	OFF - disables DHCP for LAN A
+	REL_RENEW - performs a DHCP release and renew
+	No parameter - displays current setting
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DIR</font></th>
+    <th align="left"><font color="#000000">List current directory </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>DIR filesearchstring
+	filesearchstring - search string which may contain wildcards
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ENERGYSCAN</font></th>
+    <th align="left"><font color="#000000">Perform energy scan </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Perform energy scan
+ENERGYSCAN [TSID|ALL] [VERBOSE] [SCAN CHANNELS MASK] [SCAN DURATION] [SCAN COUNT] 
+	TSID               - TSID of the gateway/remote device.
+	ALL                - every device in the network will perform energy scans with provided parameters
+	VERBOSE            - display the results ON/OFF at the end of scan or RESULTSONLY
+	SCAN CHANNELS      - 0 - all channels, 11-26 individual channels (defaults to all channels)
+	SCAN DURATION      - how long to scan on each channel - 0=31ms,1=46ms,2=77ms,3=138ms,4=261ms,5=507ms (default)
+	SCAN COUNT         - number of scans to be performed on each channel - 16-default 
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ERRlog</font></th>
+    <th align="left"><font color="#000000">Prints the current error log </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>0 errors
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ESTatus</font></th>
+    <th align="left"><font color="#000000">Display the Ethernet status </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>IPCONFIG [/all | /renew [adapter index] | /release [adapter index] | /flushdns]
+	/all       Display full configuration information.
+	/release   Release the IP address for the specified adapter 
+	/renew     Renew the IP address for the specified adapter 
+	/flushdns  Clear the name resolution client cache 
+	No params  Display main adapter IP addr, subnet mask and default gateway
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">FORMAT</font></th>
+    <th align="left"><font color="#000000">Format File System </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>FORMAT Y	WARNING: This Command will format the File System.  All contents will be lost.
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">FREE</font></th>
+    <th align="left"><font color="#000000">Show available file space </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>FREE
+	No parameter needed
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">HOStname</font></th>
+    <th align="left"><font color="#000000">Set the host name for DNS </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>HOSTNAME [string | /CLEAR]	string - ASCII string with host name	/CLEAR - clears the value
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">IMGUPD</font></th>
+    <th align="left"><font color="#000000">Upgrade firmware </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>IMGUPD - reboot into bootloader
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">INITIALIZE</font></th>
+    <th align="left"><font color="#000000">Clear file system </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>INITIALIZE
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">IPAddress</font></th>
+    <th align="left"><font color="#000000">Set IP address-dot notation </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>IPADDRESS [device_num ip_address]
+	device_num - specified Ethernet device  [0,0]
+	ip_address - IP address in dot decimal notation
+	No parameter - displays current value
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">IPConfig</font></th>
+    <th align="left"><font color="#000000">Display the Ethernet status </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>IPCONFIG [/all | /renew [adapter index] | /release [adapter index] | /flushdns]
+	/all       Display full configuration information.
+	/release   Release the IP address for the specified adapter 
+	/renew     Renew the IP address for the specified adapter 
+	/flushdns  Clear the name resolution client cache 
+	No params  Display main adapter IP addr, subnet mask and default gateway
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">IPMask</font></th>
+    <th align="left"><font color="#000000">Set IP subnet mask-dot notation </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>IPMASK [device_num ip_address]
+	device_num - specified Ethernet device  [0,0]
+	ip_address - IP address in dot decimal notation
+	No parameter - displays current value
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">IPPDns</font></th>
+    <th align="left"><font color="#000000">Set Primary DNS address </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>DNS Address ip_address
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ISDir</font></th>
+    <th align="left"><font color="#000000">Check if path is a directory. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>ISDIR directory
+	directory - string containing directory specification
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LIGHTBYTsid</font></th>
+    <th align="left"><font color="#000000">Set dev into light by TSID </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Enter Light by TSID mode
+LIGHTBYTSID [TSID|ALL]
+	TSID - device TSID [########]
+	ALL  - all devices
+	no parameter - all devices
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LIGHTBYUuid</font></th>
+    <th align="left"><font color="#000000">Set dev into light by UUID </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Enter Light by UUID mode
+LIGHTBYUUID [UID|ALL]
+	UID  - device UID [################]
+	ALL  - all devices
+	no parameter - all devices
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LISTDNS</font></th>
+    <th align="left"><font color="#000000">Display the list of DNS servers </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>LISTDNS
+	shows current DNS servers - no parameters needed
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">MAKEDir</font></th>
+    <th align="left"><font color="#000000">Create sub directory </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>MAKEDIR directory
+	directory - string containing directory specification
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">NAFBeacon</font></th>
+    <th align="left"><font color="#000000">Start/Stop nwk auto-formation </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Display or start/stop locus network auto-formation
+NAFBEACON [FORM|REFORM|STOP] [AutoformationTimeout] RATE [Beaconrate] OPTION [OrMask] [AndMask] [DeviceClass] [FloorIndex] [RankingProfile] 
+	FORM - start auto formation 
+	REFORM - release existing device(s) 
+		AutoformationTimeout - Auto formation timeout in minutes, default 20 minutes 
+	RATE - Beacon rate 
+		Beaconrate - Beacon transmit rate in seconds, default 5 seconds 
+	OPTION - option parameter for button press and class events 
+		OrMask - identify button press state or mask. range (0..0xFF in HEX) 
+		AndMask - identify button press state and mask. range (0..0xFF in HEX) 
+		DeviceClass - classes of devices that are eligible for NAF events. range (0..0xFFFF in HEX) 
+		FloorIndex -  floor effected by NAF events. range (0..255 in decimal) 
+		RankingProfile - performance ranking profile. range (0..7 in decimal) 
+	STOP - stop auto formation 
+	No parameter - displays current setting
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">NAFMovedevice</font></th>
+    <th align="left"><font color="#000000">Move rf device to a new gateway </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Move rf device to a new gateway 
+NAFMOVEDEVICE [EUID] [Channel] [PanID] 
+	EUID - device EUID to be moved to 
+	Channel - gateway channel to switch to, range 11..26 (in decimal)
+	PanID - network panid to switch to 
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">NAFSetfloor</font></th>
+    <th align="left"><font color="#000000">Set floor index for all devices </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Set all rf device(s) floor index 
+NAFSETFLOOR [FloorIndex] 
+	FloorIndex - floor index, range (0..255)
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REBOOT</font></th>
+    <th align="left"><font color="#000000">Perform system reboot </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>REBOOT	No parameters
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RESTORe</font></th>
+    <th align="left"><font color="#000000">Restore factory defaults </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>RESTORE Y
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RESTORETC</font></th>
+    <th align="left"><font color="#000000">Restore Trust Center </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>RESTORETC Filename 
+	FileName - restore rf configuration from this file 
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMDns</font></th>
+    <th align="left"><font color="#000000">Remove entry from DNS List </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>REMDNS ip_address
+	ip_address - IP address in dot decimal notation
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMMaster</font></th>
+    <th align="left"><font color="#000000">Remove entry from the IP table </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>REMMASTER cip_id ip_address/name
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REPortnetdev</font></th>
+    <th align="left"><font color="#000000">Display device idstring </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Indentify device(s) 
+REPORTNETDEV
+REPORTNETDEV -t
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RFDEvinfo</font></th>
+    <th align="left"><font color="#000000">Display rf devices information </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Display ER device data fields
+RFDevInfo [RFID|TSID|UID|ALL] [FIELD]
+	RFID  - device RFID, valid RFIDs [3..FE]
+	TSID  - device TSID [########] 
+	UID   - device rf unique identifier, UIDs [################]
+	ALL   - all device(s)
+	FIELD - data field number 0..15 (in decimal)
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RFECho</font></th>
+    <th align="left"><font color="#000000">Preform RF packet Echo tests </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>RF ECHO test
+RFECHO [rfid] [repeat] [data]  
+	rfid   - rfid of device that should echo the data
+	repeat - number of times echo test will repeated (in decimal)
+	data   - data to be echoed
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RFNETLink</font></th>
+    <th align="left"><font color="#000000">List the rf device(s) link info </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Display rf device(s) network link information
+RFNetLink [RFID|TSID|UID|ALL] 
+	RFID - device RFID, valid RFIDs <3..FE>
+	TSID - device TSID [########]
+	UID  - device rf unique identifier, valid UIDs [################]
+	ALL  or parameter - shows net link for all device
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REPORTFw</font></th>
+    <th align="left"><font color="#000000">Reports FW assignment for RFID </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Report firmware for RFID device 
+REPORTFIRMWARE [RFID]
+	RFID - device RFID to report the firmware for
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REPORTFWALL</font></th>
+    <th align="left"><font color="#000000">Reports all assigned FW files </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Report all assigned firmware
+REPORTFWALL
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RFROAMING</font></th>
+    <th align="left"><font color="#000000">Display or set rf roaming cfg </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>This command enable or disable gateway roaming support.
+RFROAMING [ON|OFF]
+	ON   - Roaming enabled.
+	OFF  - Roaming disabled.
+	No parameter - displays current setting.
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RPRTTSIDByuid</font></th>
+    <th align="left"><font color="#000000">Display rfdevice TSID by UID </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Identify device(s) by their UID
+RFTRTSIDBYUID [UID|ALL] 
+	UID  - device UID [################]
+	ALL  - all devices
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RPRTTSIDTable</font></th>
+    <th align="left"><font color="#000000">Display rfdevices id strings </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Indentify all device(s) by their TSID
+RFTRTSIDTABLE
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SCANenergy</font></th>
+    <th align="left"><font color="#000000">Energy Scan </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>ScanEnergy [ALL|SCAN-CHANNEL] [DURATION] [SCAN COUNT]
+ALL: All channels from 11 to 26 will be scanned
+SCAN-CHANNEL: specific channel specified
+DURATION: 0 to 5, scanDuration - based on Zigbee spec
+          0=31ms,1=46ms,2=77ms,3=138ms,4=261ms,5=507ms
+SCAN COUNT: Max: 255. Number of scans per channel
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SENDCLIENTFW</font></th>
+    <th align="left"><font color="#000000">Send firmware to RF client </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>�� ERROR: missing parameters. �
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETRFIDBYTsid</font></th>
+    <th align="left"><font color="#000000">Set rf device(s) RFID by TSID </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Set device(s) RFID by their TSID
+SETRFIDBYTSID [RFID] [TSID|ALL] 
+	RFID - device RFID, valid RFIDs <3..FE>
+	TSID - device TSID [########]
+	ALL  - all devices
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETRFIDBYUuid</font></th>
+    <th align="left"><font color="#000000">Set rf device(s) RFID by UID </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Set device(s) RFID by their UID
+SETRFIDBYUUID [RFID] [UID|ALL] 
+	RFID - device RFID, valid RFIDs [3..FE]
+	UID  - device UID [################]
+SetRFIDByUUID: missing parameters
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETTsidbyuid</font></th>
+    <th align="left"><font color="#000000">Set rf device TSID by UID </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Set device TSID by their UID
+SETTSIDBYUID [UID] [TSID]
+	UID  - device UID [################]
+	TSID - device TSID [########]
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SHOWHW</font></th>
+    <th align="left"><font color="#000000">Display hardware configuration </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>SHOWHW
+	No parameters
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">STARTCLIENTFWBURN</font></th>
+    <th align="left"><font color="#000000">Start client FW burn process </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>STARTCLIENTFWBURN [TSID] [Component] 
+TSID - RF client TSID number
+Component - specify slave where the code will burned, range <slave1..slave6>
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">STOPLIGHTBYTsid</font></th>
+    <th align="left"><font color="#000000">Stop Light/poll mode in rf dev </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Terminates the device(s) light by TSID mode
+STOPLIGHTBYTSID [TSID|ALL] [CONFIRM]
+	TSID - device TSID [########]
+	ALL  - all devices
+	no parameter - all devices
+	CONFIRM - devices show the confrm pattern before exiting the light by TSID mode
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">STOPLIGHTBYUuid</font></th>
+    <th align="left"><font color="#000000">Stop Light/poll mode in rf dev </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Terminates the device(s) light by UUID mode
+STOPLIGHTBYUUID [UUID|ALL] [CONFIRM]
+	UID  - device UID [################]
+	ALL  - all devices
+	no parameter - all devices
+	CONFIRM - devices show the confirm pattern before exiting the light by UUID mode
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">TSID</font></th>
+    <th align="left"><font color="#000000">Set the Touch Settable ID </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>TSID [touch_settable_id]	touch_settable_id - ID of the device (in hex).
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">UNACQUIREBYTsid</font></th>
+    <th align="left"><font color="#000000">Unacquire device by TSID </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Unacquire device by TSID 
+UNACQUIREBYTSID [TSID|ALL] [zdo leave flag]
+	TSID - device TSID [########]
+	ALL  - all devices
+	zdo leave flag  - 0 MNET command sent to client to leave the network 
+	                  1 ZDO command sent to client to leave the network 
+	Note this command is not applicable to ER devices 
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">UNACQUIREBYUuid</font></th>
+    <th align="left"><font color="#000000">Unacquire device by UID </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Unacquire device by UID 
+UNACQUIREBYUUID [UID|ALL] [zdo leave flag]
+	UID - device UID [########]
+	ALL  - all devices
+	zdo leave flag  - 0 MNET command sent to client to leave the network 
+	                  1 ZDO command sent to client  to leave the network 
+	Note this command is not applicable to ER devices 
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">UPLOAD</font></th>
+    <th align="left"><font color="#000000">Load file into device </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>Syntax: Upload SLOT slot#[.subslot#...] [DATA|FIR|CODE]
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">UPTIME</font></th>
+    <th align="left"><font color="#000000">Display the time since reboot </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>UPTIME
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">VERsion</font></th>
+    <th align="left"><font color="#000000">Print version to console </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>CEN-GWEXER [v1.3417.00000, #0107FF14]
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">XGETfile</font></th>
+    <th align="left"><font color="#000000">Use XMODEM to retrieve a file </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>XGET filesearchstring
+	filesearchstring - search string which may contain wildcards
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">XPUTfile</font></th>
+    <th align="left"><font color="#000000">Use XMODEM to send a file </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CEN-GWEXER Control Console
+
+CEN-GWEXER>XPUT [file size] [MM-DD-YY] [HH:MM:SS] [filename]
+
+CEN-GWEXER>
+</pre>
+</td>
+</tr>
+
+</table>
+</font>
+</body>
+</html>

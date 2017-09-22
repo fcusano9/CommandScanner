@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using Renci.SshNet;
 using System.Windows;
 
@@ -14,12 +11,24 @@ namespace CommandScanner.HelperClasses
 {
 	internal class ConnectionService
 	{
+		#region Properties & Fields
+
+		private ConnectionType DeviceConnectionType { get; }
+		private string Address { get; }
+		private int Port { get; }
+		private string Username { get; }
+		private string Password { get; }
+		private SshClient _sshClient;
+		private TcpClient _ctpClient;
+
+		#endregion
+
 		#region Constructors
 
 		/// <summary>
 		/// Establish a new SSH or CTP client
 		/// </summary>
-		/// <param name="hostName">The host name or IP sddress of the device you wish to connect to</param>
+		/// <param name="hostName">The host name or IP address of the device you wish to connect to</param>
 		/// <param name="connectionType"></param>
 		public ConnectionService(string hostName, ConnectionType connectionType)
 		{
@@ -32,12 +41,11 @@ namespace CommandScanner.HelperClasses
 					Port = 22;
 
 					// set the username and password for authentication
-					const string userName = "crestron";
-					const string password = "";
-					var passwordAuthentication = new PasswordAuthenticationMethod(userName, password);
+					Username = "crestron";
+					Password = "";
 
 					// save the connection info
-					DeviceConnectionInfo = new ConnectionInfo(Address, Port, userName, passwordAuthentication);
+					_sshClient = new SshClient(Address, Port, Username, Password);
 					break;
 
 				case ConnectionType.Ctp:
@@ -49,18 +57,7 @@ namespace CommandScanner.HelperClasses
 
 		#endregion
 
-		#region Fields
-
-		private SshClient _sshClient;
-		private TcpClient _ctpClient;
-		private ConnectionInfo DeviceConnectionInfo { get; }
-		private ConnectionType DeviceConnectionType { get; }
-		private string Address { get; }
-		private int Port { get; }
-
-		#endregion
-
-		#region Destructors
+		#region Destructor
 
 		/// <summary>
 		/// Dispose of the SSH/CTP client
@@ -75,6 +72,8 @@ namespace CommandScanner.HelperClasses
 		{
 			if (disposing)
 			{
+				_sshClient?.Dispose();
+				_sshClient = null;
 			}
 		}
 
@@ -92,7 +91,6 @@ namespace CommandScanner.HelperClasses
 				switch (DeviceConnectionType)
 				{
 					case ConnectionType.Ssh:
-						_sshClient = new SshClient(DeviceConnectionInfo);
 						_sshClient.Connect();
 
 						if (_sshClient.IsConnected)
@@ -100,11 +98,11 @@ namespace CommandScanner.HelperClasses
 						break;
 
 					case ConnectionType.Ctp:
-						_ctpClient = new TcpClient(Address, Port);
-						_ctpClient.Connect(Address, Port);
-
-						if (_ctpClient.Connected)
-							return true;
+						using (var ctpClient = new TcpClient(Address, Port))
+						{
+							if (ctpClient.Connected)
+								return true;
+						}
 						break;
 				}
 			}
@@ -121,31 +119,22 @@ namespace CommandScanner.HelperClasses
 		/// </summary>
 		public void Disconnect()
 		{
-			try
+			switch (DeviceConnectionType)
 			{
-				switch (DeviceConnectionType)
-				{
-					case ConnectionType.Ssh:
-						_sshClient.Disconnect();
-						_sshClient.Dispose();
-						break;
-					case ConnectionType.Ctp:
-						_ctpClient.Close();
-						break;
-					default:
-						break;
-				}
-			}
-			catch(Exception)
-			{
-				throw;
+				case ConnectionType.Ssh:
+					_sshClient.Disconnect();
+					_sshClient.Dispose();
+					break;
+				case ConnectionType.Ctp:
+					_ctpClient.Close();
+					break;
 			}
 		}
 
 		/// <summary>
 		/// Connect to the client and send a command
 		/// </summary>
-		/// <param name="inputCommand">The command with aguments</param>
+		/// <param name="inputCommand">The command with arguments</param>
 		/// <returns>The command response</returns>
 		public string SendCommand(string inputCommand)
 		{
@@ -156,17 +145,22 @@ namespace CommandScanner.HelperClasses
 				switch (DeviceConnectionType)
 				{
 					case ConnectionType.Ssh:
+						if (!_sshClient.IsConnected)
+							_sshClient.Connect();
+
 						commandResult = SendCommand(_sshClient, inputCommand);
 						return commandResult;
 
 					case ConnectionType.Ctp:
-						NetworkStream stream = _ctpClient.GetStream();
-						commandResult = SendCommand(stream, inputCommand);
-						stream.Close();
+						using (var ctpClient = new TcpClient(Address, Port))
+						{
+							NetworkStream stream = ctpClient.GetStream();
+							commandResult = SendCommand(stream, inputCommand);
+							stream.Close();
+						}
 						return commandResult;
 
-					case ConnectionType.Auto:
-						// TODO
+					// TODO add case for ConnectionType.Auto
 
 					default:
 					{
@@ -217,7 +211,7 @@ namespace CommandScanner.HelperClasses
 					}
 					catch (Exception exception)
 					{
-						throw exception;
+						MessageBox.Show($"Send Command Failed: {exception.Message}");
 					}
 				}
 			}
