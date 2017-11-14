@@ -1,36 +1,14 @@
-c:\users\fcusano\documents\visual studio 2015\Projects\CommandScanner\CommandScanner\bin\Debug\CommandScanner.exe.config
-c:\users\fcusano\documents\visual studio 2015\Projects\CommandScanner\CommandScanner\bin\Debug\CommandScanner.exe
-c:\users\fcusano\documents\visual studio 2015\Projects\CommandScanner\CommandScanner\bin\Debug\CommandScanner.pdb
-c:\users\fcusano\documents\visual studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.csprojResolveAssemblyReference.cache
-c:\users\fcusano\documents\visual studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\App.g.cs
-c:\users\fcusano\documents\visual studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\CommandScanner_MarkupCompile.cache
-c:\users\fcusano\documents\visual studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\CommandScanner_MarkupCompile.lref
-c:\users\fcusano\documents\visual studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.g.resources
-c:\users\fcusano\documents\visual studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.Properties.Resources.resources
-c:\users\fcusano\documents\visual studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.csproj.GenerateResource.Cache
-c:\users\fcusano\documents\visual studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.exe
-c:\users\fcusano\documents\visual studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.pdb
-C:\Users\fcusano\Documents\Visual Studio 2015\Projects\CommandScanner\CommandScanner\bin\Debug\Renci.SshNet.dll
-C:\Users\fcusano\Documents\Visual Studio 2015\Projects\CommandScanner\CommandScanner\bin\Debug\Renci.SshNet.xml
-C:\Users\fcusano\Documents\Visual Studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\Windows\LoadScreen.g.cs
-C:\Users\fcusano\Documents\Visual Studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\Windows\MainWindow.g.cs
-C:\Users\fcusano\Documents\Visual Studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\Windows\LoadScreen.baml
-C:\Users\fcusano\Documents\Visual Studio 2015\Projects\CommandScanner\CommandScanner\obj\Debug\Windows\MainWindow.baml
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\bin\Debug\CommandScanner.exe.config
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\bin\Debug\CommandScanner.exe
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\bin\Debug\CommandScanner.pdb
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\bin\Debug\Renci.SshNet.dll
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\bin\Debug\Renci.SshNet.xml
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\Windows\LoadScreen.g.cs
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\Windows\MainWindow.g.cs
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\App.g.cs
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\CommandScanner_MarkupCompile.cache
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\CommandScanner_MarkupCompile.lref
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\Windows\LoadScreen.baml
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\Windows\MainWindow.baml
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.g.resources
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.Properties.Resources.resources
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.csproj.GenerateResource.Cache
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.csproj.CoreCompileInputs.cache
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.exe
-C:\Users\Frank\Documents\MyProjects\CommandScanner\CommandScanner\obj\Debug\CommandScanner.pdb
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\bin\Debug\CommandScanner.exe.config
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\bin\Debug\CommandScanner.exe
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\bin\Debug\CommandScanner.pdb
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\bin\Debug\Renci.SshNet.dll
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\bin\Debug\Renci.SshNet.xml
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\obj\Debug\MainWindow.baml
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\obj\Debug\MainWindow.g.cs
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\obj\Debug\App.g.cs
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\obj\Debug\CommandScanner_MarkupCompile.cache
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\obj\Debug\CommandScanner.g.resources
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\obj\Debug\CommandScanner.Properties.Resources.resources
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\obj\Debug\CommandScanner.csproj.GenerateResource.Cache
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\obj\Debug\CommandScanner.exe
+C:\Users\fcusano\Documents\CommandScanner\CommandScanner\obj\Debug\CommandScanner.pdb
