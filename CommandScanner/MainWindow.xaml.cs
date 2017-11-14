@@ -237,17 +237,20 @@ namespace CommandScanner
 			Dispatcher.Invoke(() => { fileName = HostName.Text; });
 
 			//var fileName = HostName.Text;
-			var path = $@"..\..\..\Scans\{fileName}.html";
+			const string path = @"..\..\..\Scans";
+			var file = $"{fileName}.html";
+			var fullPath = Path.Combine(path, file);
 
+			Directory.CreateDirectory(path);
 			FileStream fs;
 			try
 			{
-				fs = File.OpenWrite(path);
+				fs = File.OpenWrite(fullPath);
 				fs.Close();
 			}
 			catch
 			{
-				fs = File.Create(path);
+				fs = File.Create(fullPath);
 				fs.Close();
 			}
 
@@ -284,7 +287,7 @@ namespace CommandScanner
 			}
 			htmlFile.AppendLine("</table>\n</font>\n</body>\n</html>");
 
-			File.WriteAllText(path, htmlFile.ToString());
+			File.WriteAllText(fullPath, htmlFile.ToString());
 		}
 
 		#endregion

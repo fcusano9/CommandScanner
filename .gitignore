@@ -6,6 +6,7 @@
 # CommandScanner specific
 bin\
 obj\
+Scans\
 
 # User-specific files
 *.suo
