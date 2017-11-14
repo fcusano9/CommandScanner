@@ -4,9 +4,9 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # CommandScanner specific
-bin\
-obj\
-Scans\
+bin/
+obj/
+Scans/
 
 # User-specific files
 *.suo
