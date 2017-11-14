@@ -5,6 +5,6 @@ namespace CommandScanner.HelperClasses
 	{
 		Auto,
 		Ssh,
-		Ctp,
+		Ctp
 	}
 }

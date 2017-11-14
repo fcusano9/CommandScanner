@@ -19,7 +19,7 @@ namespace CommandScanner.HelperClasses
 		private string Username { get; }
 		private string Password { get; }
 		private SshClient _sshClient;
-		private TcpClient _ctpClient;
+		//private TcpClient _ctpClient;
 
 		#endregion
 
@@ -125,9 +125,9 @@ namespace CommandScanner.HelperClasses
 					_sshClient.Disconnect();
 					_sshClient.Dispose();
 					break;
-				case ConnectionType.Ctp:
-					_ctpClient.Close();
-					break;
+				//case ConnectionType.Ctp:
+				//	_ctpClient.Close();
+				//	break;
 			}
 		}
 

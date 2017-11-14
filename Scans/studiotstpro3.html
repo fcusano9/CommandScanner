@@ -1,0 +1,3025 @@
+<!DOCTYPE HTML>
+<html>
+<head>  <title>TEST FILE</title>
+    <meta name="utility_author" content="Frank Cusano">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        table { page-break-inside:auto }
+        tr    { page-break-inside:avoid; page-break-after:auto }
+        thead { display:table-header-group }
+        tfoot { display:table-footer-group }
+    </style>
+</head>
+<body>
+<font face='arial'>
+<h1>This is a test</h1>
+<p>&nbsp;&nbsp; 208 normal commands found.</p>
+<table border="1" cellpadding="5" cellspacing="5" style="border-collapse:collapse;" width="100%">
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">8021XAUthenticate</font></th>
+    <th align="left"><font color="#000000">Enable/Disable 802.1x Authentication. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+8021xAuthenticate [ON |OFF]
+	ON  - Enable 802.1x Supplicant Authentication
+	OFF - Disable 802.1x Supplicant Authentication
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">8021XDOMain</font></th>
+    <th align="left"><font color="#000000">Configure/View 802.1x Domain Name. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+8021xDomainName [Domain Name]
+	 DomainName - Update Domain Name To Domain Specified
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">8021XMEThod</font></th>
+    <th align="left"><font color="#000000">Configure/View EAP Method. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+8021xMethod [Password |Certificate |List]
+	Password - 802.1x Suplicant Will Use Secured Password (EAP MSCHAP V2) EAP Method
+	Certificate - 802.1x Suplicant Will Use Certificate EAP Method
+	List - 802.1x Suplicant Will display the supported EAP Methods
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">8021XPASsword</font></th>
+    <th align="left"><font color="#000000">Configure 802.1x Password. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+8021xPassword [Password]
+	{Password} - Update Password To One Specified 
+	No parameter - Echo back command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">8021XSENdpeapver</font></th>
+    <th align="left"><font color="#000000">Enable/Disable 802.1x Peap version reporting. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+8021xSendPeapVer [ON |OFF]
+	ON  - enable 802.1x peap version number report 
+	OFF - disable 802.1x peap version number report 
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">8021XTRUStedcas</font></th>
+    <th align="left"><font color="#000000">Select/List 802.1x Trusted CA Certificates. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+8021xTrustedCAs [LIST|USE|DONTUSE] <Certificate_Name Certificate_UID>)
+	LIST -                               List All Trusted Root Certificates
+	USE {Certificate Name and UID} -     Add Specified Certificate To List Of Certificates Used To Validate The Server
+	DONTUSE {Certificate Name and UID} - Remove Specified Certificate From List Of Certificates Used To Validate The Server
+	No parameter -                      Display this help message
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">8021XUSERname</font></th>
+    <th align="left"><font color="#000000">Configure/View 802.1x User Name. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+8021xUsername Password <Name> 
+	 Password - Displays current settings 
+	 Password {Name} - Update User Name To Name Specified 
+	 No parameter - Displays Help Menu
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">8021XVALidateserver</font></th>
+    <th align="left"><font color="#000000">Require Validation Of 802.1x Authentication Server's Certificate. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+8021xValidateServer [ON |OFF]
+	ON  - 802.1x Suplicant Will Validate Authentication Server's Certificate 
+	OFF - 802.1x Suplicant Will Not Validate Authentication Server's Certificate 
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADDBLOCKEDip</font></th>
+    <th align="left"><font color="#000000">Add an IP Address to the blocked list </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADDDns</font></th>
+    <th align="left"><font color="#000000">Add an entry to DNS server List </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ADDDNS ip_address
+	ip_address - IP address in dot decimal notation
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADDDOMAINGroup</font></th>
+    <th align="left"><font color="#000000">Add a domain group to this control system </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADDGroup</font></th>
+    <th align="left"><font color="#000000">Create a new local group </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADDLICense</font></th>
+    <th align="left"><font color="#000000">Add application license. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ADDLICENSE [License] {Name} - add license 
+	License - license key
+	Name - license name string (optional)
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADDMaster</font></th>
+    <th align="left"><font color="#000000">Add a master entry to IP table </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Format: ADDMaster cip_id ip_address/name
+	cip_id - ID of the CIP node (in hex)
+	ip_address/name - IP address in dot decimal notation
+	                - or name of the site for DNS lookup
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADDPeer</font></th>
+    <th align="left"><font color="#000000">Add a peer(slave) entry to IP table </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Format: ADDPeer cip_id ip_address/name [-D:device_id] [-C:cipport] [-P:program]
+	cip_id - ID of the CIP node (in hex)
+	ip_address/name - IP address in dot decimal notation
+	                - or name of the site for DNS lookup
+	device_id       - ID in device redirection table (in hex) (must be < 256)
+	port number     - port number for the connection (in dec) (must be > 256)
+	program         - program number which uses device (in dec) (default 1)
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADDPOrtmap</font></th>
+    <th align="left"><font color="#000000">Add a port map to the port forwarding table. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ADDPOrtmap ext_port int_port ip_address/hostname protocol
+	ext_port   - port number on the LAN side of Router
+	int_port   - port number on the CS side of Router
+	ip_address - IP address (in dot decimal notation) of the device on the CS side of Router
+	hostname   - Hostname of the device on the CS side of Router
+	protocol   - IP protocol for the portmap service (TCP | UDP | Both)
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADDUSER</font></th>
+    <th align="left"><font color="#000000">Create a new local user </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADDUSERTogroup</font></th>
+    <th align="left"><font color="#000000">Add an existing local or domain user to an existing local group </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADLOGIn</font></th>
+    <th align="left"><font color="#000000">Login to Active Directory server </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ADLOGIN -d:domain -n:username -p:password
+	-d: specifies name of the domain to login.
+	-n: specifies the user name used for connection.
+	-p: specifies the password used for connection.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ADLOGOut</font></th>
+    <th align="left"><font color="#000000">Logout from Active Directory server </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ADLOGOUT
+	No parameters needed.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUCANCEL</font></th>
+    <th align="left"><font color="#000000">Cancel the auto upate in progress. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUCANCEL
+	 No Parameters - Cancels any pending auto update.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUCHECKNOW</font></th>
+    <th align="left"><font color="#000000">Check for updates now. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUCHECKNOW
+	 No Parameters - Checks for auto update actions now.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUDEVCONNECTPASS</font></th>
+    <th align="left"><font color="#000000">Get/Set the password used by auto update to login to Crestron devices. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUDEVCONNECTPASS [password]
+	 password - Password for connecting to remote devices.
+	          - To clear password use keyword "none" as password.
+	 No Parameters - Displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUDEVCONNECTUSER</font></th>
+    <th align="left"><font color="#000000">Get/Set the username used by auto update to login to Crestron devices. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUDEVCONNECTUSER [username]
+	 username - Username for connecting to remote devices.
+	          - To clear username use keyword "none" as username.
+	 No Parameters - Displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUDITLogging</font></th>
+    <th align="left"><font color="#000000">Display or Change the current audit logging operation. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUENABLE</font></th>
+    <th align="left"><font color="#000000">Enable/disable automatic updates. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUENABLE [ON|OFF]
+	 Enable/disable auto updates.
+	 No Parameters - Displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUFORCEUPDATENOW</font></th>
+    <th align="left"><font color="#000000">Force updates now. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUFORCEUPDATENOW
+	 No Parameters - Forces manifest file to be processed now.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUMANIFESTURL</font></th>
+    <th align="left"><font color="#000000">Get or Set auto updater manifest URL. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUMANIFESTURL [URL]
+	URL - URL of Manifest file.
+	NONE- clear the of Manifest url path.
+	No Parameters - Displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUPASSWORD</font></th>
+    <th align="left"><font color="#000000">Get/Set the password used by auto update to login to the update server. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUPASSWORD [password]
+	 password - Password for downloading auto update files.
+	          - To clear password use keyword "none" as password.
+	 No Parameters - Displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUPLUGINCATALOGURL</font></th>
+    <th align="left"><font color="#000000">Get or Set auto updater plugin catalog URL. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUPLUGINCATALOGURL [URL]
+	URL - URL of Plugin Catalog file.
+	NONE- To go back to the Default Plugin Catalog URL which is http://www.crestron.com/autofwupdates/AU-Plugin-Catalog.txt.
+	No Parameters - Displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUPOLLINTERVAL</font></th>
+    <th align="left"><font color="#000000">Set how long to wait before checking for updates again. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUPOLLINTERVAL [interval_in_minutes]
+	 interval_in_minutes - How many minutes to wait before checking for updates.
+	                       Will be rounded up to the nearest hour.  0 to disable.
+	 No Parameters - Displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUSTATUS</font></th>
+    <th align="left"><font color="#000000">Reports the auto update status. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUSTATUS
+	 No Parameters - Displays current auto update status
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUTHentication</font></th>
+    <th align="left"><font color="#000000">Authentication on/off </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUTHENTICATION [ON|OFF]
+	ON - turns on authentication.
+	OFF - turns off authentication.
+	No parameter - displays current setting.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUTIME</font></th>
+    <th align="left"><font color="#000000">Set a scheduled time for when to check for updates. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUTIME [TIME]
+	 TIME is [SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY] HH:MM
+	    HH:MM:  24 hour time when the manifest file should be read.
+	    Specifying only HH:MM will make the update run every day at that time.
+	    Specifying the day in addition HH:MM will make the update run only at that day and time each week.
+	 To clear time use keyword "none" as [TIME].
+	 No Parameters - Displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUTONEGot</font></th>
+    <th align="left"><font color="#000000">Set auto negotiation for Ethernet Device </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUTONEGOT [device_num (ON | 10HALF | 10FULL | 100HALF | 100FULL)]
+	device_num - number of device to set (0 or 1)
+	ON - autonegotiation is ON
+	10HALF - autonegotiation is OFF, use 10mps, half duplex.
+	10FULL - autonegotiation is OFF, use 10mps, full duplex.
+	100HALF - autonegotiation is OFF, use 100mps, half duplex.
+	100FULL - autonegotiation is OFF, use 100mps, full duplex.
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">AUUSERNAME</font></th>
+    <th align="left"><font color="#000000">Get/Set the username used by auto update to login to the update server. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+AUUSERNAME [username]
+	 username - Username for downloading auto update files.
+	          - To clear username use keyword "none" as username.
+	 No Parameters - Displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">BASICAUthentication</font></th>
+    <th align="left"><font color="#000000">Enable web server basic authentication. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+BASICAUTHENTICATION [ON | OFF]
+	ON - Enable basic authentication for web server.
+	OFF - Disable basic authentication for web server.
+	No parameter - Display current setting.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">BROADcast</font></th>
+    <th align="left"><font color="#000000">Enable/disable broadcasting of errors. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+BROADCAST [ON|OFF]
+     No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">BYE</font></th>
+    <th align="left"><font color="#000000">Close user session for this connection </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+BYE - Closes the user session for the current connection
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CARDS</font></th>
+    <th align="left"><font color="#000000">Display Cards Detected in System </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CARDS 
+ No parameters
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CATALYST</font></th>
+    <th align="left"><font color="#000000">(*) Commands the Catalyst engine core to do specific operations </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CD</font></th>
+    <th align="left"><font color="#000000">Change Directory </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CD [directory] 
+	directory - string containing directory specification
+	No parameter - display current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CERTIFicate</font></th>
+    <th align="left"><font color="#000000">Add, Remove, List or View Certificates </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CERTIFicate Cmd Certificate_Store {Certificate_Name} {Certificate_UID} {Password}
+	 Where Cmd = [ADD|REM|LIST|VIEW]
+	 Where Certificate_Store = [ROOT|MACHINE|USER|INTERMEDIATE]
+	 ADD  Certificate_Store -                  Add Certificate(from known location) To Specified Certificate Store (MACHINE store requires password)
+	 REM  Certificate_Store Certificate_Name Certificate_UID -  Remove Specified Certificate From Specified Certificate Store
+	 LIST Certificate_Store -                  List All Certificates In Specified Certificate Store
+	 VIEW Certificate_Store Certificate_Name Certificate_UID -  View Details Of Specified Certificate In Specified Certificate Store
+	 No parameter -                            Lists Usage
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CIPHER</font></th>
+    <th align="left"><font color="#000000">Set/Get the class of ciphers/algorithms used for the encryption </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CIPHER [STRONG/ALL]
+	parameter - desired set of ciphers/algorithms SSH server will use for encryption
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CIPPORT</font></th>
+    <th align="left"><font color="#000000">Set port number for CIP </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CIPPORT [portnumber]
+	portnumber - desired port number > 4095 (in decimal).
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CLEARerr</font></th>
+    <th align="left"><font color="#000000">Clears the current error log. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CLEARERR
+     Clears the current error log.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CLEARAUDITLOG</font></th>
+    <th align="left"><font color="#000000">Clear the audit log. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CLEARCSAUTHENTICATION</font></th>
+    <th align="left"><font color="#000000">Clear Control System Authentication credentials. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ClearCSAuthentication 
+Clear Control System Authentication parameters for CIP connect message.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CLOUDPROXYAUTH</font></th>
+    <th align="left"><font color="#000000">Sets the authentication method for connecting to a proxy </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Sets the specified authentication methods to try when connecting to a proxy, the methods must be space delimited
+CLOUDPROXYAUTH: [None | Basic | Digest | Digest_IE | NTLM | ANY | ANYSAFE | ONLY]
+	None - no authentication
+	Basic - Most commonly used and supported, username/password are sent in clear text (DEFAULT)
+	Digest - More secure than BASIC, username/password are NOT sent in clear text
+	Digest_IE - Digest authentication with an IE flavor
+	NTLM - A proprietary protocol invented and used by Microsoft. It uses a challenge-response and hash concept similar to Digest, to prevent the password from being eavesdropped
+	ANY - Automatically selects whatever is suitable, the most secure option is preferred
+	ANYSAFE - Automatically selects whatever is suitable except 'BASIC', the most secure option is preferred
+	ONLY - Specifies that if authentication is required only the seleced method is acceptable
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CLOUDPROXYURL</font></th>
+    <th align="left"><font color="#000000">Sets the url of the proxy used to make requests </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Sets the url of the proxy used to make requests
+CloudProxyUrl: [scheme://][username:password@][hostname | ipAddress][:port]
+	scheme - The scheme of the request: http, socks4, socks5, etc
+	username - The username used to connect to the proxy server (OPTIONAL)
+	password - The password used to connect to the proxy server (OPTIONAL)
+	hostname - The hostname of the proxy server
+	ipAddress - The ip address of the proxy server
+	port - The port number the proxy server is listening on (OPTIONAL, default '1080')
+Use 'clear' to clear the current url
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">COPYfile</font></th>
+    <th align="left"><font color="#000000">Copy a file to a different directory </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+COPYFILE sourcespec destspec 
+	sourcespec - source file name specification (could be relative to current dir)
+	destspec - destination file name specification (could be relative to current dir)
+	filenames with embedded spaces must be enclosed in double quotes("The File")
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CORE3XPANELWEB</font></th>
+    <th align="left"><font color="#000000">Configure the core3 XPanel Flash policy server </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Core3XpanelWeb [ON | OFF] [DOMAIN] [PORT(s)] [SECURE_OFF | SECURE_ON]
+	ON - enables Smart Graphics XPanel Web
+	OFF - disables Smart Graphics XPanel Web
+	DOMAIN - sets Smart Graphics XPanel Web domain
+	PORT(s) - sets Smart Graphics XPanel Web port(s) (0 to use default port, * to open all ports. Other valid input examples: "64232" or "64232,6700-8900")
+	SECURE_OFF - Smart Graphics XPanel Web can only connect to control system using an unencrypted connection
+	SECURE_ON - Smart Graphics XPanel Web can only connect to control system using encrypted TLS/SSL. Note: SSL must be ON and CA Signed
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CSINAutomode</font></th>
+    <th align="left"><font color="#000000">Display if the router is in the automatic/Manual mode </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CSINAutoMode  
+	 No parameter - Displays if the control subnet is in the automatic or manual mode
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CSROUTerprefix</font></th>
+    <th align="left"><font color="#000000">Display or Configure Control Subnet's Static Router Prefix. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CSRouterPrefix [IP_Address/Prefix_Size]  
+	 IP_Address - IP Address 
+	 Prefix_Size - Number of leading bits of the routing prefix. 
+	 No parameter - Displays Current Control Subnet Prefix Configuration
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">CTPPORT</font></th>
+    <th align="left"><font color="#000000">Set/Get the CTP Port </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+CTPPORT [portnumber]
+	portnumber - desired port number > 4095 (in decimal).
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DATASTOREDELete</font></th>
+    <th align="left"><font color="#000000">Clear the Logs for the Specified Program </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DATASTOREDELETE [-T:DAYS OLD] [-P:ALL | -P:Specific OWNER ID] [-L | -G] 
+	-T: Delete older than xxx days 
+	-P: Clear DATASTORE for a specific owner or ALL.
+	-L: Operate on Local Store
+	-G: Operate on Global Store
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DATASTOREEXPORT</font></th>
+    <th align="left"><font color="#000000">Export to XML file </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DATASTOREEXPORT [-F:filename] [-P:ALL | -P:Specific OWNER ID] [-L | -G]
+	-F:\filepath\filename for result. Default is Console
+	-P: Export DATASTORE records for a specific owner or ALL.
+	-L: Operate on Local Store
+	-G: Operate on Global Store
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DATASTOREIMPORt</font></th>
+    <th align="left"><font color="#000000">Import from XML file </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DATASTOREIMPORT [-F:filename] [-L | -G]
+	-F:\filepath\filename to import. Default is Console
+	-L: Operate on Local Store
+	-G: Operate on Global Store
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DATASTORESTATus</font></th>
+    <th align="left"><font color="#000000">The Data Store Status </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DATASTORESTATUS
+Gives Information on All data Store databases.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DEFRouter</font></th>
+    <th align="left"><font color="#000000">Set default router. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DEFROUTER [device_num ip_address]
+	device_num - specified Ethernet device  [0 - 2] 
+	ip_address - IP address in dot decimal notation
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DELete</font></th>
+    <th align="left"><font color="#000000">Remove file(s) </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DELETE filesearchstring
+	filesearchstring - search string which may contain wildcards
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DELETEDOMAINGroup</font></th>
+    <th align="left"><font color="#000000">Delete a domain group that was previously added to this control system </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DELETEGroup</font></th>
+    <th align="left"><font color="#000000">Delete an existing local group </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DELETEUser</font></th>
+    <th align="left"><font color="#000000">Delete an existing local user </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DELLICense</font></th>
+    <th align="left"><font color="#000000">Delete application(s) license. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DELLICENSE {[VENDORID] [MODULEID]} | [ALL] - delete license key
+	VENDORID - vendor id, valid range (1...65535)
+	MODULEID - module id, valid range (0...65535)
+	ALL - delete all license keys
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DHCP</font></th>
+    <th align="left"><font color="#000000">Enable/disable dynamic IP addressing. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DHCP [device_num [ON | OFF | REL_RENEW]]
+	ON - enables DHCP for device_num
+	OFF - disables DHCP for device_num
+	REL_RENEW - performs a DHCP release and renew for device_num
+	No parameter - displays current setting for all devices
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DHCPLeases</font></th>
+    <th align="left"><font color="#000000">Display Control Subnet's DHCP Leases. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DHCPLeases 
+	 No parameter - Displays Current Control Subnet DHCP leases in tabular format
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DHCPOPT</font></th>
+    <th align="left"><font color="#000000">Sets DHCP Server Options </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DHCPOPT [HOSTNAME | FQDN]
+	HOSTNAME - Send Local HostName in DHCP Discover Request - Default Option
+	FQDN - Send the Fully Qualified Domain Name in DHCP Discover Request
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DIR</font></th>
+    <th align="left"><font color="#000000">List files and directories in current directory </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DIR filesearchstring
+    filesearchstring - search string which may contain wildcards
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DOMAinname</font></th>
+    <th align="left"><font color="#000000">Set the domain name for DNS environment </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DOMAINNAME [string | /CLEAR ]
+	string - ASCII string containing domain name
+	/CLEAR - clears the value
+	No parameter - current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">DOMAINNAMEEx</font></th>
+    <th align="left"><font color="#000000">Set the domain name for multiple adapters </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+DOMAINNAMEEX [device_num domain | /CLEAR ]
+	device_num - Specified ethernet device[0..3]
+	domain - ASCII string containing domain name
+	/CLEAR - clears the value
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ECHO</font></th>
+    <th align="left"><font color="#000000">Enable/disable character echoing </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ECHO [ON | OFF]
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ENABLEFEature</font></th>
+    <th align="left"><font color="#000000">Enable/disable optional features </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ENABLEFEATURE <FEATURE> [ON, OFF]
+	FEATURE - Feature to be enabled/disabled or ALL
+	ON - start feature when system boots
+	OFF - do not start feature when system boots
+	feature by itself shows current state for next boot
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ERASE</font></th>
+    <th align="left"><font color="#000000">Remove file(s) </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ERASE filesearchstring
+	filesearchstring - search string which may contain wildcards
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ERRlog</font></th>
+    <th align="left"><font color="#000000">Prints the current error log. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ERRLOG {OK | NOTICE | WARNING | ERROR | FATAL}
+     OK - print all OKs and above
+     NOTICE - print all notices and above  (default)
+     WARNING - print all warnings and above
+     ERROR - print all errors and above
+     FATAL - print all fatal errors and above
+     No parameter:  Same as "ERRLOG NOTICE"
+     PLOGALL - print persistent log for both previous and current session
+     PLOGCURRENT - print persistent log for current session
+     PLOGPREVIOUS - print persistent log for previous session
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ETHERNET</font></th>
+    <th align="left"><font color="#000000">Enable/disable Ethernet </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ETHERNET [ON | OFF]
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ETHERNETADAPTER</font></th>
+    <th align="left"><font color="#000000">Enable/Disable Ethernet Adapters </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ETHERNETADAPTER [ENABLE [Adapter Id]  | DISABLE [Adapter Id] | LIST] 
+	 Command used to enable/disable specified Adapter Id 
+	 ? Display this help message 
+	 ENABLE - Enable specified adapter Id 
+	 DISABLE - Disable specified adapter Id 
+	 LIST - List adapter Information in tabular format 
+	 No Parameter - Display this help message
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ETHWdog</font></th>
+    <th align="left"><font color="#000000">Enable/disable Ethernet Watchdog. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ETHWDOG [ON | OFF]
+	ON - turn on Ethernet watchdog
+	OFF - turn off Ethernet watchdog
+	No parameter - display current watchdog status
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">FGETfile</font></th>
+    <th align="left"><font color="#000000">Uses built-in (S)FTP/HTTP(S) client to transfer file from the server to ROM </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+FGETfile [url] [local_path] {username:password} {proxy}
+	url - fully qualified URL to the file being downloaded from the server
+	local_path - destination path to the file in the ROM
+	username:password - optional access credentials to the server
+	proxy - optional proxy in the form of url
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">FORCEDREBOOT</font></th>
+    <th align="left"><font color="#000000">Forces system reboot </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+FORCEDREBOOT - reboot system
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">FORMAT</font></th>
+    <th align="left"><font color="#000000">Format external memory card </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+FORMAT [index]
+	index - index of the external removable memory disk to be formatted
+		(e.g. if index = 2, \RM2 will be formatted)
+	if index not specified, \RM will be formatted.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">FPUTfile</font></th>
+    <th align="left"><font color="#000000">Uses built-in (S)FTP/HTTP(S) client to transfer file from ROM to the server </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+FPUTfile [url] [local_path] {username:password} {proxy}
+	url - fully qualified URL to the file being uploaded to the server
+	local_path - path to the source file in the ROM
+	username:password - optional access credentials to the server
+	proxy - optional proxy in the form of url
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">FREE</font></th>
+    <th align="left"><font color="#000000">Show available file space </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+FREE - Indicates free disk space
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">GETAUDITLOG</font></th>
+    <th align="left"><font color="#000000">Retrieve the audit log. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">GETCODE</font></th>
+    <th align="left"><font color="#000000">Retrieve code needed for eControl2 activation </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+GETCODE 
+	 Retrieves code needed for eControl2 activation.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">GETPAsswordrule</font></th>
+    <th align="left"><font color="#000000">Get password rules for local users </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+GETPASSWORDRULE
+	No parameters needed.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">HEARTBEATtimeout</font></th>
+    <th align="left"><font color="#000000">Set TCP Socket Send Timeout value in Milliseconds </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+HEARTBEATTIMEOUT [timeoutInMilliSeconds]
+	timeoutInMilliSeconds - Timeout before sending a CIP heartbeat to the peer if no messages are received from the peer. Default value is 30 seconds.
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">HELP</font></th>
+    <th align="left"><font color="#000000">Display help screens </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+HELP - Detailed help available.  Type a command followed by
+       a space and '?' to see options for that command
+       (i.e. HELP ?)
+HELP ALL will display a list of all commands.
+HELP DEVice will display a list of commands specific to this device.
+HELP ETHERnet will display a list of Ethernet commands.
+HELP FILE will display a list of commands for file operations.
+HELP SYStem will display a list of general system commands.
+HELP RF will display a list of commands for the radio chip if available.
+HELP OSD will display a list of commands for the on-screen-display if available.
+HELP RAVA will display a list of commands for RAVA VOIP if available.
+HELP BACNET will display a list of commands for the BACNET stack if available.
+HELP USER will display a list of commands added to the system by user programs.
+HELP CRESTIMERENG will display a list of commands for the Crestron Timer Engine.
+HELP xxx* will display a list of commands starting with xxx.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">HOSTname</font></th>
+    <th align="left"><font color="#000000">Set the host name for DNS environment </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+HOSTNAME [string | /CLEAR ]
+	string - ASCII string containing host name (max 15 chars)
+	/CLEAR - clears the value
+	No parameter - current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ICMP</font></th>
+    <th align="left"><font color="#000000">Enable/disable ICMP ping </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ICMP [ON | OFF] 
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ICMPREDIRECT</font></th>
+    <th align="left"><font color="#000000">Enable/disable ICMP Redirect </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ICMPREDIRECT [Enable | Disable] 
+	Enable Disable ICMP Redirect. 
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">INFO</font></th>
+    <th align="left"><font color="#000000">Print Software Capabilities </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+INFO
+	No parameters
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">INITIALIZE</font></th>
+    <th align="left"><font color="#000000">Clear file system </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+INITIALIZE
+	No parameter
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">IPAddress</font></th>
+    <th align="left"><font color="#000000">Set IP address. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+IPADDRESS [device_num ip_address]
+	device_num - specified Ethernet device  [0 - 2] 
+	ip_address - IP address in dot decimal notation
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">IPCONFIG</font></th>
+    <th align="left"><font color="#000000">Display/Configure IP Settings </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+usage : ipconfig [/all | /renew [adapter index] | /release [adapter index] ] /flushdns
+    ?    Display this help message. 
+    /all  Display full configuration information.
+    /release   Release the IP address for the specified adapter 
+    /renew     Renew the IP address for the specified adapter 
+    /flushdns  Clear the name resolution client cache 
+ The default is to display only the IP address, subnet mask and default gateway for each adapter bound to TCP/IP.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">IPMask</font></th>
+    <th align="left"><font color="#000000">Set IP Subnet Mask. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+IPMASK [device_num ip_address]
+	device_num - specified Ethernet device  [0 - 2] 
+	ip_address - IP address in dot decimal notation
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">IPTable</font></th>
+    <th align="left"><font color="#000000">Display IP Table </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+IPTABLE  [-P:program] [-T] [-I:id] [-C] [-O] 
+
+	-I:id:  ID to display entry for
+	-P:program: ALL or # of programs's IP table to show
+	-T Display data in a tabular format 
+	-C Clears the IP Table for the specified program. Requires -P option 
+	-O Displays only offline devices 
+	No Arguments shows IP Table for program 1
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ISDIR</font></th>
+    <th align="left"><font color="#000000">Is the parameter a directory </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ISDIR directory 
+	directory - string containing directory specification
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ISOLATENETworks</font></th>
+    <th align="left"><font color="#000000">Isolate The LAN and Control Subnet Networks. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ISOLATENETWORKS [state]
+	 state          - {ON|OFF}
+	 No parameter   - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">KILLSOCKET</font></th>
+    <th align="left"><font color="#000000">Close an active TCP console socket </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+KILLSOCKET [CTPx | TELNETx | SCTPx | SHELLx]
+	CTPx - kill CTP console #x
+	TELNETx - kill Telnet console #x
+	SCTPx - kill SCTP console #x
+	SHELLx - kill SHELL (SSH) console #x
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LISTACTIVEMODULES</font></th>
+    <th align="left"><font color="#000000">(*) Get a list of active S+ Modules. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Bad or Incomplete Command (LISTACTIVEMODULES)
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LISTBLOCKEDip</font></th>
+    <th align="left"><font color="#000000">List the blocked IP addresses </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ERROR: Authentication is not on. Command not allowed.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LISTDNS</font></th>
+    <th align="left"><font color="#000000">Display the list of DNS servers </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+shows current DNS servers - no parameters needed
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LISTDOMAINGroups</font></th>
+    <th align="left"><font color="#000000">List domain groups that were added to this control system </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LISTGROUPS</font></th>
+    <th align="left"><font color="#000000">List existing local groups </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LISTGROUPUsers</font></th>
+    <th align="left"><font color="#000000">List all existing (local and domain) users in an existing local group </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LISTUIversion</font></th>
+    <th align="left"><font color="#000000">View List UI Version. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ListUIVersion 
+Display the ListUI Version.
+	 No Parameters - Displays current List UI version
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LISTUSERS</font></th>
+    <th align="left"><font color="#000000">List of users authenticated on this system </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LOADIPTABle</font></th>
+    <th align="left"><font color="#000000">Load New IPTable </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+LOADIPTABLE -p:[AppId] [path]	Loads program specific DIP file from removable 
+	media to the internal \sys directory 
+	-P:Specific Program Identifier 
+	path - path on removable media including "\", 
+	e.g \RM\TmpDir or \RM2\dipDir 
+	Example: LOADIPTABLE -p:1 \RM\dipDir 
+	Note: program MUST be restarted for new IPTABLE to take effect
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">LOGOFF</font></th>
+    <th align="left"><font color="#000000">Logoff current user </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">MAKEDIR</font></th>
+    <th align="left"><font color="#000000">Create a Directory </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+MAKEDIR directory 
+	directory - string containing directory specification
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">MESSage</font></th>
+    <th align="left"><font color="#000000">Display a message on the screen. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+MESSAGE [string]
+Display a message on the screen. 
+	MESSAGE [string]
+	string - ASCII string to display on screen. Maximum length is 240 characters.
+	No parameters - restore previous display
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">MIPTable</font></th>
+    <th align="left"><font color="#000000">Display Master IP Table </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+MIPTABLE [-T] 
+
+	-T Display data in a tabular format 
+	No Arguments. Shows IP Table for Master Entry
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">MOVEfile</font></th>
+    <th align="left"><font color="#000000">Move a file to a different directory </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+MOVEFILE sourcespec destspec 
+	sourcespec - source file name specification (could be relative to current dir)
+	destspec - destination file name specification (could be relative to current dir)
+	filenames with embedded spaces must be enclosed in double quotes("The File")
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">MYCRESTRON</font></th>
+    <th align="left"><font color="#000000">Setup MyCrestron Domain & Password, and attempt to register system </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Format: MyCrestron DOMAIN PASSWORD
+	DOMAIN - sets MyCrestron domain
+	PASSWORD - sets MyCrestron password
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">NATENAble</font></th>
+    <th align="left"><font color="#000000">Enable/disable Network Address Translator (NAT) </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+NATENABLE [ON | OFF] 
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">NETSTAT</font></th>
+    <th align="left"><font color="#000000">Displays protocol statistics and current TCP/IP network connections </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+usage : netstat
+    ?    Display this help message. 
+ The default is to displays all connections and listening ports.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">NUMNOHBRESPonsecnt</font></th>
+    <th align="left"><font color="#000000">Set maximum number of no response allowed for CIP Heartbeat Messaging </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+NUMNOHBRESPONSECNT [count]
+	count - Number of times we do not receive a response to the CIP heartbeat before we close the socket. Default value is 3.
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">NVRAMCLEAR</font></th>
+    <th align="left"><font color="#000000">Clear NVRAM with zeros </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+NVRAMCLEAR [-P:ALL | -P:Specific Program Identifier] [-D]
+	-P: Clear NVRAM for a specific program or ALL programs. If not present, ALL assumed.
+	-D: Deallocate NVRAM memory.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">NVRAMGET</font></th>
+    <th align="left"><font color="#000000">Retrieve contents of NVRAM from the system </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+NVRAMGET [-P:ALL | -P:Specific Program Identifier]
+	-P: Get NVRAM for a specific program or ALL programs. If not present, ALL assumed.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">NVRAMPUT</font></th>
+    <th align="left"><font color="#000000">Send contents of NVRAM to the system </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+NVRAMPUT [-P:ALL | -P:Specific Program Identifier]
+	-P: Put NVRAM for a specific program or ALL programs. If not present, ALL assumed.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">NVRAMREBOOT</font></th>
+    <th align="left"><font color="#000000">Print reboot information </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+NVRAMREBOOT [SHOW]
+	SHOW - display the last reboot message in NVRAM
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">OSD</font></th>
+    <th align="left"><font color="#000000">Show OSD state. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+OSD
+Show OSD state
+	No Parameters - outputs osd state
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">PASSTO</font></th>
+    <th align="left"><font color="#000000">Enter passto mode console<->device </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Valid options are:
+ CRESnet -  Passto Over Cresnet
+ IPID -  Passto Over IP
+ SLOT - plug-in card
+ CONSole - console mode
+    hex number allowed as argument
+   Status if no arguments
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">PERSISTENTLOG</font></th>
+    <th align="left"><font color="#000000">Start PersistentLog on system boot </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+PersistentLog [ON, OFF]
+	ON - Start PersistentLog on system bootup
+	OFF - Do not start PersistentLog on system bootup
+	No arguments - Shows current state
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">PING</font></th>
+    <th align="left"><font color="#000000">Ping Remote Node </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Usage: ping [-n count] [-i TTL] [-v TOS] [-w timeout] address
+
+Options:
+    -n count      Send count.
+    -i TTL        Time to live.
+    -v TOS        Type of service
+    -w timeout    Timeout (in milliseconds)
+    -r count      Record route for count hops.
+    -s count      Timestamp route for count hops.
+    -S address    Source address to use (IPv6-only).
+    -4            Force using IPv4.
+    -6            Force using IPv6.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">PRINTAUDITLOG</font></th>
+    <th align="left"><font color="#000000">Print the audit log. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">PROGREGister</font></th>
+    <th align="left"><font color="#000000">Registers/Unregisters the specified program </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+PROGREGISTER {-P:ALL | -P:Specific Program Identifier} [-U] [-C:SSPDllName]
+ 	 -P:  (Un)Register the specified program or ALL
+ 	 -U:  if present, will unregister the program
+ 	 -C:  if present, indicates the entry point for a Simpl Sharp PRO program - (This is the name of the Simpl Sharp PRO DLL) 
+ 	 no arguments lists which programs are registered
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">PROGRESet</font></th>
+    <th align="left"><font color="#000000">Restarts the specified program </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+PROGRESET {-P:ALL | -P:Specific Program Identifier} {-V} {-D}
+ 	 -P:  Reset a specific program or ALL.  If not present, ALL assumed.
+ 	 -V:  Verbose reset.
+ 	 -D:  Don't keep DBGSIGNAL information (PROGRESET normally preserves DBGSIGNAL flags).
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">PROGUPTIME</font></th>
+    <th align="left"><font color="#000000">(*) Display the time the program is running </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+PROGUPTIME[:program#]
+	program#: number of program to execute. (default=1)
+	No arguments necessary.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RAMFree</font></th>
+    <th align="left"><font color="#000000">Show available RAM file space </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+RAMFREE
+	no parameters needed
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REBOOT</font></th>
+    <th align="left"><font color="#000000">Perform system reboot </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+REBOOT - reboot system
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMBLOCKEDip</font></th>
+    <th align="left"><font color="#000000">Remove an IP Address from the blocked list </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMDns</font></th>
+    <th align="left"><font color="#000000">Remove an entry to DNS server List </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+REMDNS ip_address
+	ip_address - IP address in dot decimal notation
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMMaster</font></th>
+    <th align="left"><font color="#000000">Remove a master entry to IP table </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Format: REMMaster cip_id ip_address/name
+	cip_id - ID of the CIP node (in hex)
+	ip_address/name - IP address in dot decimal notation
+	                - or name of the site for DNS lookup
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMOTESYSlog</font></th>
+    <th align="left"><font color="#000000">Enable/disable remote system logging of errors. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+REMOTESYSLOG [-S:] {-E:} {-A} [-I:address] [-P:port]
+	-S:ON|OFF	Enable or disable Remote System Error Logging
+	-E:OK|INFO|NOTICE|WARNING|ERROR|FATAL
+	OK - log to Syslog all OKs and above
+	INFO - log to Syslog all info and above
+	NOTICE - log to Syslog all notices and above  (default)
+	WARNING  - log to Syslog warnings and above
+	ERROR - log to Syslog errors and above
+	FATAL - log to Syslog fatal errors and above
+	-A  Log to Syslog contents of the Audit log provided that Audit Logging is enabled.
+	-I:address  Remote Syslog server IP address in dot decimal notation or
+			 ASCII string containing the server host name (max 255 chars)
+	-P:port  Remote Syslog server port number in decimal
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMOVEALLBREAKPOINTS</font></th>
+    <th align="left"><font color="#000000">(*) Remove all breakpoints from Catalyst logic. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMOVEBREAKPOINT</font></th>
+    <th align="left"><font color="#000000">(*) Add breakpoint to Catalyst logic. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMOVEDIR</font></th>
+    <th align="left"><font color="#000000">Remove a Directory </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+REMOVEDIR directory 
+	directory - string containing directory specification
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMOVETBCLIENT</font></th>
+    <th align="left"><font color="#000000">Removes Console Client Configuration </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+REMOVETBCLIENT
+	Removes console client configuration
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMOVEUserfromgroup</font></th>
+    <th align="left"><font color="#000000">Remove an existing local or domain user from an existing local group </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMPeer</font></th>
+    <th align="left"><font color="#000000">Remove a peer(slave) entry to IP table </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Format: REMPeer cip_id ip_address/name [-D:device_id] [-C:cipport] [-P:program]
+	cip_id - ID of the CIP node (in hex)
+	ip_address/name - IP address in dot decimal notation
+	                - or name of the site for DNS lookup
+	device_id       - ID in device redirection table (in hex) (must be < 256)
+	port number     - port number for the connection (in dec) (must be > 256)
+	program         - program number which uses device (in dec) (default 1)
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REMPOrtmap</font></th>
+    <th align="left"><font color="#000000">Remove a port map from the port forwarding table. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+REMPOrtmap ext_port int_port ip_address/hostname protocol
+	ext_port   - port number on the LAN side of Router
+	int_port   - port number on the CS side of Router
+	ip_address - IP address (in dot decimal notation) of the device on the CS side of Router
+	hostname   - Hostname of the device on the CS side of Router
+	protocol   - IP protocol for the portmap service (TCP | UDP | Both)
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">REPORTCRESNET</font></th>
+    <th align="left"><font color="#000000">Show all devices on the main cresnet leg </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+REPORTCRESNET  [<HEX ID>] | [ALL]
+ Display all cresnet devices / Single cresnet device
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RESERVEDLeases</font></th>
+    <th align="left"><font color="#000000">Display/Update Control Subnet's Reserved DHCP Leases. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+RESERVEDLeases [ADD | REM | CLEAR_ALL] 
+	 ADD -  MAC_Address IP_Address Description 
+	 REM -  MAC_Address 
+	 CLEAR_ALL - Clears all reserved leases 
+	 No parameter - Displays Current reserved DHCP leases in tabular format
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RESETPassword</font></th>
+    <th align="left"><font color="#000000">Reset an existing local user's password </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RESTORe</font></th>
+    <th align="left"><font color="#000000">Restore factory defaults </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+RESTORE
+	No parameter
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RESUME</font></th>
+    <th align="left"><font color="#000000">(*) Resume Execution of the Catalyst logic. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RMLOGerr</font></th>
+    <th align="left"><font color="#000000">Enable logging errors to the file. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+RMLOGERR [OFF|ON] -F:{Filename} -S:{MaxSize} -N:{MaxNumOfFiles} {OK | NOTICE | WARNING | ERROR | FATAL}
+     -F:{Filename}: Filename is name of the Log file (must include the path and '.log' as file extension)
+     -S:{MaxSize}:  MaxSize is between 262144 and 5242880 bytes
+     -N:{MaxNumOfFiles}:  MaxNumOfFiles is between 1 and 10
+     OK - log to file all OKs and above
+     INFO - log to file all info messages and above
+     NOTICE - log to file all notices and above  (default)
+     WARNING  - log to file warnings and above
+     ERROR - log to file errors and above
+     FATAL - log to file fatal errors and above
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">RMTRANSfer</font></th>
+    <th align="left"><font color="#000000">Transfer a project to/from removable media </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+RMTRANSFER {-P:Specific Program Identifier} FROM|TO path {IPT}
+	FROM|TO - indicates whether transfering from/to removable media
+	path - path for the project on removable media. (RM\Simpl\AppXX) 
+	IPT - Copy the IPTABLE also if exists
+	Note: program MUST be stopped to transfer
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ROUTERREboot</font></th>
+    <th align="left"><font color="#000000">Reboot the router </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ROUTERREBOOT 
+ 	 Reboot the router (Caution will lose ethernet connectivity) .
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ROUTERUPLOAD</font></th>
+    <th align="left"><font color="#000000">Upload firmware to the router </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ROUTERUPLOAD [PATCH PatchFileName] [BOOTLOADER] [COMBINED]
+ 	 No parameters - Upload the firmware on the router (Caution will lose ethernet connectivity) .
+ 	 PATCH - Upload the specified patch firmware to the router (Caution will lose ethernet connectivity) .
+ 	 PatchFileName - Upload the specified patch file to the router .
+ 	 BOOTLOADER - Upload the bootloader to the router (Caution will lose ethernet connectivity) .
+ 	 COMBINED - Upload the combined bootloader+firmware to the router (Caution will lose ethernet connectivity) .
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">ROUTERUPTIME</font></th>
+    <th align="left"><font color="#000000">Indicates router uptime </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+ROUTERUPTIME 
+ 	 Indicates router uptime.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SECURECIPport</font></th>
+    <th align="left"><font color="#000000">Set Secure(SSL) port number for CIP </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SECURECIPPORT [portnumber]
+	portnumber - desired port number > 4095 (in decimal).
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SECURECTPport</font></th>
+    <th align="left"><font color="#000000">Set/Get Secure CTPPort </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SECURECTPPORT [portnumber] 
+	portnumber - desired port number > 4095 (in decimal).
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SECUREGatewaymode</font></th>
+    <th align="left"><font color="#000000">Set/Display secure gateway operation mode. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SECUREGATEWAYMODE [DEFAULT | SECUREONLY | SECURENONCS | SECUREEXT]
+	DEFAULT     - Accept both secure and unsecure Gateway CIP connections on all network interfaces.
+	SECUREONLY  - Accept only secure Gateway CIP connections on all network interfaces.
+	SECURENONCS - Accept only secure Gateway CIP connections from non control subnet.
+	              Accept both secure and unsecure Gateway CIP connections on the control subnet ( Router Only Control Systems).
+	SECUREEXT   - Accept only secure Gateway CIP connections from external IP addresses (from different subnets than any of the connected networks)
+	No parameter - displays current Secure gateway mode settings.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SECUREWebport</font></th>
+    <th align="left"><font color="#000000">Set Secure(SSL) port number for Web. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SECUREWEBPORT [portnumber] 
+	portnumber - desired port number (in decimal).
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETBREAKPOINT</font></th>
+    <th align="left"><font color="#000000">(*) Add breakpoint to Catalyst logic, breakpoint will pause for 30 seconds max. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETCSAUTHENTICATION</font></th>
+    <th align="left"><font color="#000000">Set Control System Authentication credentials. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SetCSAuthentication -N:Username -P:Password 
+Sets Control System Authentication parameters for CIP connect message. 
+	 -N: specifies name of a local or domain (domain\user) user
+	 -P: specifies password.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETLogoffidletime</font></th>
+    <th align="left"><font color="#000000">Set idle time allowed before current user is automatically logged off </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETLOCKOUTTIME</font></th>
+    <th align="left"><font color="#000000">Set time that an IP is blocked from login </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETLOGINAttempts</font></th>
+    <th align="left"><font color="#000000">Set the maximum number of login attempts before a user is blocked </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETPAsswordrule</font></th>
+    <th align="left"><font color="#000000">Set password rules for local users </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SETPASSWORDRULE {-ALL | -NONE} | {-LENGTH:minPasswordLength} {-MIXED} {-DIGIT} {-SPECIAL}
+	-ALL: all rules will be applied.
+	-NONE: no rule will be applied.
+	-LENGTH: specifies minimum password length. By default, the minimum length is 6. This parameter can't be combined with NONE.
+	-MIXED: password must contain a lower and upper case character. This parameter can't be combined with NONE.
+	-DIGIT: password must contain a number. This parameter can't be combined with NONE.
+	-SPECIAL: password must contain a special character. This parameter can't be combined with NONE.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETTBCLIENTCONNFRVR</font></th>
+    <th align="left"><font color="#000000">Set Console Client to try and reconnect after a disconnect </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SETTBCLIENTCONNFRVR [ON|OFF]
+	Sets Console Client to reconnect after a disconnect
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETTBCLIENTIPA</font></th>
+    <th align="left"><font color="#000000">Set Console Client Server IP Address </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SETTBCLIENTIPA [ip_address | HostName]
+	ip_address - IP address in dot decimal notation
+	HostName - TBClient server hostName
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETTBCLIENTNUMRETRY</font></th>
+    <th align="left"><font color="#000000">Set Console Client number of retries </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SETTBCLIENTNUMRETRY [numberofretries] 
+	numberofretries - Max number of retries 
+	0 indicates that the console client connection will keep on trying to connect to the server
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SETTBCLIENTPORTNUM</font></th>
+    <th align="left"><font color="#000000">Set Console Client Server Port Number </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SETTBCLIENTPORTNUM [portnumber]
+	portNumber - Port Number in decimal notation
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SHOWARPtable</font></th>
+    <th align="left"><font color="#000000">Display interface ARP table </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SHOWARPTABLE
+	No parameters
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SHOWEXTRAerrors</font></th>
+    <th align="left"><font color="#000000">Enables extended errors </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SHOWEXTRAERRORS [{option}] [OFF | ON]
+	{option}  [OFF | ON] turns on or off specified option
+		Px - extra for Program x on (x = program number)
+		CON - extra for console
+		SYS - extra for general system information
+		ENET - extra for ethernet communications
+		BAC - extra for BACnet communications
+		CRESTIMERENG - extra for Crestron Timer Engine
+		AUTOUPDATE - extra for Crestron Auto Updater
+		WEB - extra for Crestron Web Scripting (IIS/ISAPI)
+	OFF - turns all off
+	ON - turns all on
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SHOWHW</font></th>
+    <th align="left"><font color="#000000">Display hardware configuration </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SHOWHW 
+ No parameters
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SHOWLICENSE</font></th>
+    <th align="left"><font color="#000000">Display list of licensed application(s). </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SHOWLICENSE - display list of licensed application(s).
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SHOWPORTMAP</font></th>
+    <th align="left"><font color="#000000">Display the current portmaps for the router. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SHOWPORTMAP [-ALL]
+	-ALL shows both user and system level ports.
+	No arguments shows only user level ports.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SNTP</font></th>
+    <th align="left"><font color="#000000">Configure network time synchronization </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SNTP [START |STOP| SYNC] [SERVER:address] [PERIOD:time}
+	START  - starts periodic synchronization
+	STOP   - stop periodic synchronization
+	SYNC   - force synchronization
+	SERVER - address of server to synchronize with
+	PERIOD - how often synchronization is done (in minutes min=10)
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SOCKETSendtimeout</font></th>
+    <th align="left"><font color="#000000">Set TCP Socket Send Timeout value in Milliseconds </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SOCKETSENDTIMEOUT [value]
+	value - desired timeout in milliseconds
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SPLUSTASKS</font></th>
+    <th align="left"><font color="#000000">(*) Get a list of running S+ Tasks. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Bad or Incomplete Command (SPLUSTASKS)
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SSHPORT</font></th>
+    <th align="left"><font color="#000000">Set/Get the SSH Port </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SSHPORT [OFF | ON | portnumber]
+	[OFF | ON] - Disables/Enables SSH. Default is ON
+	portnumber - desired port number (in decimal).
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SSL</font></th>
+    <th align="left"><font color="#000000">Display/Set SSL type. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SSL [OFF | SELF | CA] [-P:password] {TLSSSL | TLSONLY | TLS1.2ONLY}
+	where 'OFF' turns off SSL,
+	where 'SELF' sets SSL to use 'self-signed' certificates,
+	where 'CA' sets SSL to use 'CA' issued certificates,
+	where '-P:' supplies password for opening the private key file when SSL is set to CA,
+	where 'TLSSSL' implies that we support SSL fallback (default) for client/server connections.
+	where 'TLSONLY' implies that we do not support SSL fallback for client/server connections.
+	where 'TLS1.2ONLY' implies that we ONLY support TLS1.2 for client/server connections.
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SSPTASKs</font></th>
+    <th align="left"><font color="#000000">(*) Show currently executing user threads in SIMPL# Pro. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SSPTASKs[:program#]
+	View a list of the executing user threads in a SIMPL# Pro program.
+	No arguments necessary.
+	See also SSPTHREADINFO.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">STARTPROGAFTERROUTER</font></th>
+    <th align="left"><font color="#000000">Delay starting programs until Control Subnet router has been initialized </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+STARTPROGAFTERROUTER [ON | OFF]
+	ON - Delays the startup of programs until the Control Subnet router is initialized
+	OFF - Programs startup immediately, despite state of Control Subnet router
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">STARTTBCLIENT</font></th>
+    <th align="left"><font color="#000000">Enables Console Client Connection </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+STARTTBCLIENT
+	Enables Console Client connection
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">STEP</font></th>
+    <th align="left"><font color="#000000">(*) Single step Catalyst logic. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">STOPPROGram</font></th>
+    <th align="left"><font color="#000000">Stops the specified program </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+STOPPROGRAM {-P:ALL | -P:Specific Program Identifier} {-V} {-K}
+ 	 -P:  Stop a specific program or ALL.  If not present, ALL assumed.
+ 	 -V:  Verbose shutdown.
+ 	 -K:  Keep DBGSIGNAL information (STOPRPG normally clears DBGSIGNAL flags)
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">STOPTBCLIENT</font></th>
+    <th align="left"><font color="#000000">Disable Console Client Connection </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+STOPTBCLIENT
+	Disables Console Client connection - will break connection
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SUDO</font></th>
+    <th align="left"><font color="#000000">Sudo Command </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SUDO cmd [param1 param2 ...]
+	cmd: command to execute.
+	param1,param2,...: parameters for the command.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SYSLOG</font></th>
+    <th align="left"><font color="#000000">Enable/disable system UI log. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SYSLOG [ON|OFF|CLEAR|PRINT|LOGNOTICEON|LOGNOTICEOFF|LOGEXTRAON|LOGEXTRAOFF]
+	 Enable/disable UI system logging.
+	 No Parameters - Displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SYSMSG</font></th>
+    <th align="left"><font color="#000000">Enable/disable system message display. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SYSMSG [ON|OFF]
+	 Enable/disable system message display.
+	 No Parameters - Displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">SYSTEMKEY</font></th>
+    <th align="left"><font color="#000000">Display system key. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+SYSTEMKEY - display system key.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">TCPKEEPALIVE</font></th>
+    <th align="left"><font color="#000000">Enable/disable TCP Keep Alive </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+TCPKeepAlive [ON | OFF] 
+	Enables/Disables TCP Keep Alive 
+	TCP Keep Alive is supported for Client-Servers / Direct Socket  Client-Servers / Console connections 
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">TELNETport</font></th>
+    <th align="left"><font color="#000000">Enable/disable the Telnet port </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+TELNETPORT [OFF | ON ]
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">TESTDNS</font></th>
+    <th align="left"><font color="#000000">Test DNS Server </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+TESTDNS string
+	string - ASCII string containing host name
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">TIMEdate</font></th>
+    <th align="left"><font color="#000000">Set the time and date </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+TIMEDATE [hh:mm:ss mm-dd-yyyy]
+	hh:mm:ss - time in hours (use 24hr), mins and secs
+	mm/dd/yyyy or mm-dd-yyyy - date in months(1-12), day(1-31) and year
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">TIMEZone</font></th>
+    <th align="left"><font color="#000000">Set the timezone </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+TIMEZONE [LIST | zone]
+	LIST - print timezones
+	zone - number of the timezone to set
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">TRANSFERLICense</font></th>
+    <th align="left"><font color="#000000">Transfer application license. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+TRANSERLICENSE [VENDORID] [MODULEID] [SYSTEMKEY] [HOSTNAME] - transfer license to other controller
+	VENDORID - vendor id, valid range (1...65535)
+	MODULEID - module id, valid range (0...65535)
+	SYSTEMKEY - system key for other controller
+	HOSTNAME - hostname for other controller
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">TYPE</font></th>
+    <th align="left"><font color="#000000">Display file contents </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+TYPE filename
+	filename - the name of the file to display
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">UCMD</font></th>
+    <th align="left"><font color="#000000">(*) Send a command from the console to the user program </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+USERPROGCMD[:program#] {quoted string}
+	program#: number of program to execute. (default=1)
+	Escape sequences will be translated, quotes will not be sent to user program.
+	The program needs a "User Program Commands" symbol to receive the data
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">UPDATEPassword</font></th>
+    <th align="left"><font color="#000000">Update current local user's password </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">UPLOAD</font></th>
+    <th align="left"><font color="#000000">Load file into cresnet device </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+Valid options are:
+ CRESnet -  UPLOAD Over Cresnet
+ SLOT - plug-in card
+ UPLOad - device upgrade
+ CODE - device upgrade
+ FIrmware - device upgrade
+ DATA - xmodem xfer mode
+ SCreen - xmodem xfer mode
+    hex number allowed as argument
+ UPLOAD [SLOT|CNET(default)] ID_OR_SLOT_NUM [FIRMWARE |CODE | SCREEN |DATA(default)]
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">UPTIME</font></th>
+    <th align="left"><font color="#000000">Display the time the system is running </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+UPTIME
+	no parameters needed
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">USERINFOrmation</font></th>
+    <th align="left"><font color="#000000">Show access information for a specific user. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+There is no help for this command
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">USERPROGCMD</font></th>
+    <th align="left"><font color="#000000">(*) Send a command from the console to the user program </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+USERPROGCMD[:program#] {quoted string}
+	program#: number of program to execute. (default=1)
+	Escape sequences will be translated, quotes will not be sent to user program.
+	The program needs a "User Program Commands" symbol to receive the data
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">VERsion</font></th>
+    <th align="left"><font color="#000000">Version Command </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+VERSION [-v]
+	-v : show extended version info.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">WEBINIT</font></th>
+    <th align="left"><font color="#000000">Initialize Webserver default file. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+WEBINIT
+	no parameters needed
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">WEBPORT</font></th>
+    <th align="left"><font color="#000000">Set port number for Webserver. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+WEBPORT [portnumber]
+	portnumber - desired port number (in decimal).
+	No parameter - displays current value
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">WEBSERVer</font></th>
+    <th align="left"><font color="#000000">Enable/disable Webserver. </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+WEBSERVER [ON | OFF]
+	No parameter - displays current setting
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">WHO</font></th>
+    <th align="left"><font color="#000000">Generate a report of the Ethernet consoles </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+WHO
+	 No Parameter neccessary
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">WHOAmi</font></th>
+    <th align="left"><font color="#000000">Display current user's identity </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+WHOAMI
+	No parameters needed.
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">XGETfile</font></th>
+    <th align="left"><font color="#000000">Use XMODEM to transfer file from ROM </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+XGET filename
+	filename - name of the file
+</pre>
+</td>
+</tr>
+
+<tr bgcolor="#C0C0C0">
+    <th width="20%"><font color="#000000">XPUTfile</font></th>
+    <th align="left"><font color="#000000">Use XMODEM to transfer file to ROM </font></th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>
+XPUT size date time name
+	size - size of the file in bytes
+	date - date of the file (MM-DD-YY)
+	time - UTC time of the file (HH:MM:SS)
+	name - name of the file
+</pre>
+</td>
+</tr>
+
+</table>
+</font>
+</body>
+</html>
