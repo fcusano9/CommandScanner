@@ -21,13 +21,50 @@
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 
-		<Label x:Name="HostNameLabel" Content="Host Name / IP Address:" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="1" Padding="5" FontSize="16"/>
-		<TextBox x:Name="HostName" Height="30" Margin="0" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" AllowDrop="False" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" Padding="0" FontSize="16" TextChanged="hostname_ContentChanged"/>
-		<ComboBox x:Name="ConnectionTypeBox" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5" Grid.Row="2" VerticalAlignment="Center" Width="200" Padding="5,0,0,0" Height="30" Loaded="comboBox_Loaded" SelectionChanged="comboBox_SelectionChanged" VerticalContentAlignment="Center" FontSize="16"/>
-		<Button x:Name="Connect" Grid.ColumnSpan="2" Grid.Column="0" Content="Connect" HorizontalAlignment="Center" Margin="0" Grid.Row="4" VerticalAlignment="Center" Width="200" FontSize="16" ToolTip="Connect to the device" Height="40" Click="connect_Click"/>
-		<Button x:Name="ScanDevice" Content="Scan Device" HorizontalAlignment="Center" Margin="0" Grid.Row="6" VerticalAlignment="Center" Width="200" Grid.ColumnSpan="2" Grid.Column="0" UseLayoutRounding="True" Height="40" Click="button_Click" ToolTip="Scans device for commands and saves them to an HTML file" FontSize="16" IsEnabled="False"/>
-		<ProgressBar x:Name="ScanningProgress" HorizontalAlignment="Center" Height="20" Grid.Row="7" VerticalAlignment="Center" Width="400" Grid.ColumnSpan="2" Grid.Column="0" Margin="0" Visibility="Hidden"/>
-		<TextBlock x:Name="ProgressTextBlock" HorizontalAlignment="Left" Margin="44,62,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="0" Width="400" Text="Processing Command: " Height="16" Visibility="Hidden"/>
-		<TextBlock x:Name="ScanningText" HorizontalAlignment="Left" Grid.Row="7" TextWrapping="Wrap" Text="Scanning..." VerticalAlignment="Top" Grid.Column="0" Width="60" Margin="45,24,0,0" Visibility="Hidden"/>
+		<Label
+			x:Name="HostNameLabel" Content="Host Name / IP Address:"
+			VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0" Padding="5" FontSize="16"
+			Grid.Row="1"/>
+		
+		<TextBox
+			x:Name="HostName"
+			VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="200" Margin="0" Padding="0" FontSize="16"
+			VerticalContentAlignment="Center" TextWrapping="Wrap" AllowDrop="False" Grid.Column="1" Grid.Row="1"
+			TextChanged="hostname_ContentChanged"/>
+		
+		<ComboBox
+			x:Name="ConnectionTypeBox"
+			VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="200" Margin="0,5" Padding="5,0,0,0" FontSize="16"
+			VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="2"
+			Loaded="comboBox_Loaded" SelectionChanged="comboBox_SelectionChanged"/>
+		
+		<Button
+			x:Name="Connect" Content="Connect"
+			VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="200" Margin="0" FontSize="16"
+			Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"
+			ToolTip="Connect to the device"
+			Click="connect_Click"/>
+
+		<Button
+			x:Name="ScanDevice" Content="Scan Device"
+			VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="200" Margin="0" FontSize="16"
+			Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" UseLayoutRounding="True" IsEnabled="False"
+			ToolTip="Scans device for commands and saves them to an HTML file"
+			Click="button_Click"/>
+		
+		<ProgressBar
+			x:Name="ScanningProgress"    
+			VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="400" Margin="0"
+			Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Visibility="Hidden"/>
+		
+		<TextBlock
+			x:Name="ProgressTextBlock"
+			VerticalAlignment="Top" HorizontalAlignment="Left" Height="16" Width="400" Margin="44,62,0,0" TextWrapping="Wrap"
+			Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Visibility="Hidden" Text="Processing Command: "/>
+
+		<TextBlock
+			x:Name="ScanningText"
+			VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Margin="45,24,0,0"
+			Grid.Column="0" Grid.Row="7" TextWrapping="Wrap" Visibility="Hidden" Text="Scanning..."/>
 	</Grid>
 </Window>

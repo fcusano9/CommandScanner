@@ -237,7 +237,7 @@ namespace CommandScanner
 			Dispatcher.Invoke(() => { fileName = HostName.Text; });
 
 			//var fileName = HostName.Text;
-			var path = $@"..\..\..\{fileName}.html";
+			var path = $@"..\..\..\Scans\{fileName}.html";
 
 			FileStream fs;
 			try
@@ -286,7 +286,6 @@ namespace CommandScanner
 
 			File.WriteAllText(path, htmlFile.ToString());
 		}
-
 
 		#endregion
 	}
