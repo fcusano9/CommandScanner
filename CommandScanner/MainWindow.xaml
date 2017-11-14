@@ -53,9 +53,9 @@
 			Click="button_Click"/>
 		
 		<ProgressBar
-			x:Name="ScanningProgress"    
-			VerticalAlignment="Center" HorizontalAlignment="Center" Height="20" Width="400" Margin="0"
-			Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Visibility="Hidden"/>
+			x:Name="ScanningProgress"
+			VerticalAlignment="Center" HorizontalAlignment="Center" Height="10" Width="400" Margin="0"
+			Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Visibility="Hidden" Foreground="#FF227CE8"/>
 		
 		<TextBlock
 			x:Name="ProgressTextBlock"
