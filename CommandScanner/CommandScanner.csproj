@@ -69,7 +69,7 @@
     </Compile>
     <Compile Include="HelperClasses\ConnectionService.cs" />
     <Compile Include="HelperClasses\Enums.cs" />
-    <Compile Include="HelperClasses\Command.cs" />
+    <Compile Include="Command.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

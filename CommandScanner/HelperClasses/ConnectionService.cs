@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace CommandScanner.HelperClasses
 {
-	internal class ConnectionService
+	internal class ConnectionService : IDisposable
 	{
 		#region Properties & Fields
 

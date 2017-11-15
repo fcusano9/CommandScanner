@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using CommandScanner.HelperClasses;
 using System.ComponentModel;
+using System.Linq;
 
 namespace CommandScanner
 {
@@ -118,14 +119,24 @@ namespace CommandScanner
 
 		#endregion
 
-		#region Helper Methods
+		#region Private Methods
 
+		/// <summary>
+		/// Update the progress bar
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
 		{
 			ScanningProgress.Value = e.ProgressPercentage;
 			ProgressTextBlock.Text = (string)e.UserState;
 		}
 
+		/// <summary>
+		/// Scans the device for commands when the Scan button is clicked
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void worker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			Dispatcher.Invoke(() =>
@@ -148,7 +159,7 @@ namespace CommandScanner
 
 		private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			MessageBox.Show("Done");
+			MessageBox.Show("Finished Scanning Commands");
 			ScanningProgress.Value = 0;
 			ProgressTextBlock.Text = "";
 
@@ -156,43 +167,86 @@ namespace CommandScanner
 			ProgressTextBlock.Visibility = Visibility.Hidden;
 		}
 
+		/// <summary>
+		/// Search the control system for all hidden and visible commands
+		/// </summary>
+		/// <param name="worker"></param>
+		/// <returns></returns>
 		private List<Command> GetAllCommands(BackgroundWorker worker)
 		{
+			const string helpCommand = "help all";
+			const string hidHelpCommand = "hidhelp all";
+
+			var visibleCommands = new List<Command>();
+			var hiddenCommands = new List<Command>();
 			var allCommands = new List<Command>();
 
-			var result = Connection.SendCommand("help all");
-			var commands = result.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+			var visComResult = Connection.SendCommand(helpCommand);
+			var allComResult = Connection.SendCommand(hidHelpCommand);
 
-			int commandTotal = commands.Length;
+			var visibleComs = visComResult.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+			var allComs = allComResult.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+			int commandTotal = allComs.Length;
 			int commandNum = 1;
 
-			foreach (var command in commands)
+			// Create a list of all of the visible commands
+			foreach (var command in visibleComs)
 			{
+				// Parse the list of commands for the Command info
 				var data = command.Trim().Split(new[] { "  " }, StringSplitOptions.RemoveEmptyEntries);
-				//if (data.Length != 3)
-				//	continue;
 
-				//ScanningProgress.Value += 1;
+				Command com = CreateCommand(data, false);
+				if (com == null)
+					continue;
 
-				Command com = null;
-				if (data.Length == 3)
-				{
-					com = new Command(data[0].Trim(), data[1].Trim(), data[2].Trim());
-					GetCommandHelp(ref com);
-					allCommands.Add(com);
-				}
-				else if (data.Length == 2)
-				{
-					com = new Command(data[0].Trim(), "none", data[1].Trim());
-					GetCommandHelp(ref com);
-					allCommands.Add(com);
-				}
-
-				worker.ReportProgress((commandNum * 100) / commandTotal, $"Processing Command: \"{com?.Name}\"");
+				visibleCommands.Add(com);
+				worker.ReportProgress(commandNum * 100 / commandTotal, $"Processing Command: \"{com?.Name}\"");
 				commandNum += 1;
 			}
 
+			// Create a list of all of the hidden commands
+			foreach (var command in allComs)
+			{
+				var data = command.Trim().Split(new[] { "  " }, StringSplitOptions.RemoveEmptyEntries);
+
+				// Check to see if command is already in the list of visible commands which means it is not a hidden command
+				bool found = visibleCommands.Any(c => c.Name == data[0].Trim());
+				if (found)
+					continue;
+
+
+				Command com = CreateCommand(data, true);
+				if (com == null)
+					continue;
+
+				hiddenCommands.Add(com);
+				worker.ReportProgress(commandNum * 100 / commandTotal, $"Processing Command: \"{com?.Name}\"");
+				commandNum += 1;
+			}
+
+			allCommands.AddRange(visibleCommands);
+			allCommands.AddRange(hiddenCommands);
+
 			return allCommands;
+		}
+
+		private Command CreateCommand(string[] commandInfo, bool isHidden)
+		{
+			Command com;
+			if (commandInfo.Length == 3)
+			{
+				com = new Command(commandInfo[0].Trim(), commandInfo[1].Trim(), commandInfo[2].Trim(), isHidden);
+				GetCommandHelp(ref com);
+				return com;
+			}
+			if (commandInfo.Length == 2)
+			{
+				com = new Command(commandInfo[0].Trim(), "none", commandInfo[1].Trim(), isHidden);
+				GetCommandHelp(ref com);
+				return com;
+			}
+			return null;
 		}
 
 		/// <summary>
@@ -272,11 +326,15 @@ namespace CommandScanner
 			htmlFile.AppendLine($"<p>&nbsp;&nbsp; {commands.Count} normal commands found.</p>");
 			htmlFile.AppendLine("<table border=\"1\" cellpadding=\"5\" cellspacing=\"5\" style=\"border-collapse:collapse;\" width=\"100%\">\n");
 
+			string color = "#000000";
 			foreach (var command in commands)
 			{
+				if (command.IsHidden)
+					color = "#0000FF";
+
 				htmlFile.AppendLine("<tr bgcolor=\"#C0C0C0\">");
-				htmlFile.AppendLine($"    <th width=\"20%\"><font color=\"#000000\">{command.Name}</font></th>");
-				htmlFile.AppendLine($"    <th align=\"left\"><font color=\"#000000\">{command.Description} </font></th>");
+				htmlFile.AppendLine($"    <th width=\"20%\"><font color=\"{color}\">{command.Name}</font></th>");
+				htmlFile.AppendLine($"    <th align=\"left\"><font color=\"{color}\">{command.Description} </font></th>");
 				htmlFile.AppendLine("</tr>");
 
 				htmlFile.AppendLine("<tr>");
