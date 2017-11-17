@@ -15,19 +15,19 @@ namespace CommandScanner
 	/// </summary>
 	public partial class MainWindow
 	{
-		#region Properties & Fields
-
-		private ConnectionService Connection { get; set; }
-		private ConnectionType _connectionType;
-
-		#endregion
-
 		#region Constructors
 
 		public MainWindow()
 		{
 			InitializeComponent();
 		}
+
+		#endregion
+
+		#region Properties & Fields
+
+		private ConnectionService Connection { get; set; }
+		private ConnectionType _connectionType;
 
 		#endregion
 
@@ -62,6 +62,7 @@ namespace CommandScanner
 		/// </summary>
 		private void comboBox_Loaded(object sender, RoutedEventArgs e)
 		{
+			// TODO: add ctp and auto
 			//var data = new List<string> { "Auto Detect", "SSH", "CTP" };
 			var data = new List<string> { "SSH" };
 
@@ -71,6 +72,11 @@ namespace CommandScanner
 			comboBox.SelectedIndex = 0;
 		}
 
+		/// <summary>
+		/// Disable the Scan Device button if the device host name is changed
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="textChangedEventArgs"></param>
 		private void hostname_ContentChanged(object sender, TextChangedEventArgs textChangedEventArgs)
 		{
 			ScanDevice.IsEnabled = false;
@@ -121,16 +127,7 @@ namespace CommandScanner
 
 		#region Private Methods
 
-		/// <summary>
-		/// Update the progress bar
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-		{
-			ScanningProgress.Value = e.ProgressPercentage;
-			ProgressTextBlock.Text = (string)e.UserState;
-		}
+		#region BackgroundWorker Methods
 
 		/// <summary>
 		/// Scans the device for commands when the Scan button is clicked
@@ -139,6 +136,7 @@ namespace CommandScanner
 		/// <param name="e"></param>
 		private void worker_DoWork(object sender, DoWorkEventArgs e)
 		{
+			// Jump back to the main thread to make the progress info visible
 			Dispatcher.Invoke(() =>
 			{
 				ScanningText.Visibility = Visibility.Visible;
@@ -146,26 +144,52 @@ namespace CommandScanner
 				ProgressTextBlock.Visibility = Visibility.Visible;
 			});
 
+			// Display a message the shows the current command being processed
 			var worker = (BackgroundWorker)sender;
-			worker.ReportProgress(0, "Processing Command:");
+			worker.ReportProgress(0, "Found Command:");
 
+			// Scan the device for commands and write them to an HTML file
 			List<Command> commands = GetAllCommands(worker);
 			WriteCommandsToFile(commands);
 
-			Dispatcher.Invoke(() => { ScanningText.Visibility = Visibility.Hidden; });
-
+			// Set the progress bar value to 100 in case it is not there already in order to show that the process is complete
 			worker.ReportProgress(100, "Scanning Complete!");
 		}
 
+		/// <summary>
+		/// Update the progress bar
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		{
+			// Update the progress bar and display the command that is being scanned
+			ScanningProgress.Value = e.ProgressPercentage;
+			ProgressTextBlock.Text = (string)e.UserState;
+		}
+
+		/// <summary>
+		/// Method that runs after the background worker completes.
+		/// In this case that would be after we have finished scanning the device.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
+			// Display a message that shows that the scan has been completed
 			MessageBox.Show("Finished Scanning Commands");
+
+			// TODO: Add a button to open the generated file in the message box
+
+			// Reset the progress bar and text, then hide them
 			ScanningProgress.Value = 0;
 			ProgressTextBlock.Text = "";
-
+			ScanningText.Visibility = Visibility.Hidden;
 			ScanningProgress.Visibility = Visibility.Hidden;
 			ProgressTextBlock.Visibility = Visibility.Hidden;
 		}
+
+		#endregion
 
 		/// <summary>
 		/// Search the control system for all hidden and visible commands
@@ -174,6 +198,7 @@ namespace CommandScanner
 		/// <returns></returns>
 		private List<Command> GetAllCommands(BackgroundWorker worker)
 		{
+			// Set the value of the help commands used to get the list of commands
 			const string helpCommand = "help all";
 			const string hidHelpCommand = "hidhelp all";
 
@@ -181,12 +206,13 @@ namespace CommandScanner
 			var hiddenCommands = new List<Command>();
 			var allCommands = new List<Command>();
 
+			// Send the help commands to get the list of all commands
 			var visComResult = Connection.SendCommand(helpCommand);
 			var allComResult = Connection.SendCommand(hidHelpCommand);
-
 			var visibleComs = visComResult.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 			var allComs = allComResult.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
+			// Get the total number of commands so we know the max value for the progress bar
 			int commandTotal = allComs.Length;
 			int commandNum = 1;
 
@@ -200,8 +226,9 @@ namespace CommandScanner
 				if (com == null)
 					continue;
 
+				// Add the command to the list of commands and update the progress bar
 				visibleCommands.Add(com);
-				worker.ReportProgress(commandNum * 100 / commandTotal, $"Processing Command: \"{com?.Name}\"");
+				worker.ReportProgress(commandNum * 100 / commandTotal, $"Found Command: \"{com.Name}\"");
 				commandNum += 1;
 			}
 
@@ -215,24 +242,27 @@ namespace CommandScanner
 				if (found)
 					continue;
 
-
 				Command com = CreateCommand(data, true);
 				if (com == null)
 					continue;
 
+				// Add the command to the list of commands and update the progress bar
 				hiddenCommands.Add(com);
-				worker.ReportProgress(commandNum * 100 / commandTotal, $"Processing Command: \"{com?.Name}\"");
+				worker.ReportProgress(commandNum * 100 / commandTotal, $"Found Command: \"{com.Name}\"");
 				commandNum += 1;
 			}
 
+			// Create a list of all of the commands and sort them alphabetically
 			allCommands.AddRange(visibleCommands);
 			allCommands.AddRange(hiddenCommands);
+			allCommands.Sort();
 
 			return allCommands;
 		}
 
 		private Command CreateCommand(string[] commandInfo, bool isHidden)
 		{
+			// Some commands are missing the access level for some reason
 			Command com;
 			if (commandInfo.Length == 3)
 			{
@@ -326,11 +356,9 @@ namespace CommandScanner
 			htmlFile.AppendLine($"<p>&nbsp;&nbsp; {commands.Count} normal commands found.</p>");
 			htmlFile.AppendLine("<table border=\"1\" cellpadding=\"5\" cellspacing=\"5\" style=\"border-collapse:collapse;\" width=\"100%\">\n");
 
-			string color = "#000000";
 			foreach (var command in commands)
 			{
-				if (command.IsHidden)
-					color = "#0000FF";
+				var color = command.IsHidden ? "#0000FF" : "#000000";
 
 				htmlFile.AppendLine("<tr bgcolor=\"#C0C0C0\">");
 				htmlFile.AppendLine($"    <th width=\"20%\"><font color=\"{color}\">{command.Name}</font></th>");

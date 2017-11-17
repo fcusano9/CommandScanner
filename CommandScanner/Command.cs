@@ -1,7 +1,9 @@
 ﻿
+using System;
+
 namespace CommandScanner
 {
-	internal class Command
+	internal class Command : IComparable<Command>
 	{
 		#region Constructors
 
@@ -34,6 +36,16 @@ namespace CommandScanner
 		#endregion
 
 		#region Public Methods
+
+		/// <summary>
+		/// Default comparer for sorting Command types
+		/// </summary>
+		/// <param name="compareCom"></param>
+		/// <returns></returns>
+		public int CompareTo(Command compareCom)
+		{
+			return compareCom == null ? 1 : string.Compare(Name, compareCom.Name, StringComparison.OrdinalIgnoreCase);
+		}
 
 		public override string ToString()
 		{
