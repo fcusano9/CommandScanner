@@ -42,7 +42,7 @@
 			VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="2"
 			Loaded="comboBox_Loaded" SelectionChanged="comboBox_SelectionChanged"/>
 
-		<CheckBox x:Name="checkBox" Content="Get Command Help" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+		<CheckBox x:Name="checkBox" Content="Get Command Help" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="3" VerticalAlignment="Top" ToolTip="Getting the command help takes much longer"/>
 
 		<Separator HorizontalAlignment="Center" Height="20" Margin="0" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Width="350"/>
 
