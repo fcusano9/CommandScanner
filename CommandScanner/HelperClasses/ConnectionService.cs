@@ -4,6 +4,7 @@ using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Renci.SshNet;
 using System.Windows;
 
@@ -176,11 +177,15 @@ namespace CommandScanner.HelperClasses
 
 		private string SendCommand(SshClient sshClient, string inputCommand)
 		{
-			SshCommand result = sshClient.RunCommand(inputCommand);
-			if (result.ExitStatus != 0)
-				throw new Exception($"Send Command Error: {result.Error} for command {inputCommand}");
+			var task = Task.Run(() => sshClient.RunCommand(inputCommand));
 
-			return result.Result;
+			if (!task.Wait(TimeSpan.FromSeconds(2)))
+				return string.Empty;
+
+			if (task.Result.ExitStatus != 0)
+				throw new Exception($"Send Command Error: {task.Result.Error} for command {inputCommand}");
+
+			return task.Result.Result;
 		}
 
 		private string SendCommand(NetworkStream stream, string inputCommand)
