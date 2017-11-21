@@ -60,19 +60,22 @@
 			ToolTip="Scans device for commands and saves them to an HTML file"
 			Click="button_Click"/>
 
+		<TextBlock
+			x:Name="ScanningText"
+			VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Margin="20,33,0,0"
+			Grid.Column="0" Grid.Row="7" TextWrapping="Wrap" Text="Scanning..."
+			Visibility="Hidden"/>
+
 		<ProgressBar
 			x:Name="ScanningProgress"
-			VerticalAlignment="Center" HorizontalAlignment="Center" Height="10" Width="400" Margin="0"
-			Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Visibility="Collapsed" Foreground="#FF227CE8"/>
+			VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Width="300" Margin="0"
+			Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Foreground="#FF227CE8"
+			Visibility="Hidden"/>
 
 		<TextBlock
 			x:Name="ProgressTextBlock"
-			VerticalAlignment="Top" HorizontalAlignment="Left" Height="16" Width="400" Margin="44,62,0,0" TextWrapping="Wrap"
-			Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Visibility="Hidden" Text="Processing Command: "/>
-
-		<TextBlock
-			x:Name="ScanningText"
-			VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Margin="45,24,0,0"
-			Grid.Column="0" Grid.Row="7" TextWrapping="Wrap" Visibility="Hidden" Text="Scanning..."/>
+			VerticalAlignment="Top" HorizontalAlignment="Left" Height="16" Width="400" Margin="20,70,0,0" TextWrapping="Wrap"
+			Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Text="Processing Command: "
+			Visibility="Hidden"/>
 	</Grid>
 </Window>
